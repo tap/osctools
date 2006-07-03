@@ -19,7 +19,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\oscpack\ip;..\oscpack\osc;..\zeroconf"
+				AdditionalIncludeDirectories="..\oscpack;..\oscpack\ip\;..\oscpack\osc;..\zeroconf"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE; OSC_HOST_LITTLE_ENDIAN"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
@@ -32,7 +32,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="dnssd.lib ws2_32.lib"
+				AdditionalDependencies="dnssd.lib ws2_32.lib winmm.lib"
 				OutputFile="$(OutDir)/OSCSend.exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
@@ -68,7 +68,7 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\oscpack\ip;..\oscpack\osc;..\zeroconf"
+				AdditionalIncludeDirectories="..\oscpack;..\oscpack\ip\;..\oscpack\osc;..\zeroconf"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE; OSC_HOST_LITTLE_ENDIAN"
 				RuntimeLibrary="4"
 				UsePrecompiledHeader="0"
@@ -79,7 +79,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="dsnsd.lib ws2_32.lib"
+				AdditionalDependencies="dnssd.lib ws2_32.lib winmm.lib"
 				OutputFile="$(OutDir)/OSCSend.exe"
 				LinkIncremental="1"
 				GenerateDebugInformation="TRUE"
@@ -133,6 +133,9 @@
 		<Filter
 			Name="support"
 			Filter="">
+			<File
+				RelativePath="..\oscpack\ip\IpEndpointName.cpp">
+			</File>
 			<File
 				RelativePath="..\oscpack\ip\win32\NetworkingUtils.cpp">
 			</File>
@@ -188,16 +191,13 @@
 				RelativePath="..\zeroconf\OscUdpZeroConfService.h">
 			</File>
 			<File
-				RelativePath="..\oscpack\ip\win32\UdpPacketListenerPort.cpp">
+				RelativePath="..\oscpack\ip\TimerListener.h">
 			</File>
 			<File
-				RelativePath="..\oscpack\ip\UdpPacketListenerPort.h">
+				RelativePath="..\oscpack\ip\win32\UdpSocket.cpp">
 			</File>
 			<File
-				RelativePath="..\oscpack\ip\win32\UdpTransmitPort.cpp">
-			</File>
-			<File
-				RelativePath="..\oscpack\ip\UdpTransmitPort.h">
+				RelativePath="..\oscpack\ip\UdpSocket.h">
 			</File>
 			<File
 				RelativePath="..\zeroconf\win32\ZeroConf.cpp">

@@ -51,7 +51,7 @@ using std::streamsize;
 using std::istringstream;
 
 #include "NetworkingUtils.h"
-#include "UdpTransmitPort.h"
+#include "UdpSocket.h"
 #include "OscOutboundPacketStream.h"
 #include "OscUdpZeroConfService.h"
 #include "OscUdpZeroConfBrowser.h"
@@ -121,14 +121,13 @@ bool IsFloat(const string& S)
 }
 
 
-
-class App
+class App : public OSCRegisterListener
 {
     typedef void (App::*command)(void);
     map<string,command> commands;
     bool quit;
 
-    UdpTransmitPort *transmitPort;
+    UdpTransmitSocket  *transmitSocket;
 
     OscUdpZeroConfService *service;
 
@@ -185,8 +184,8 @@ class App
 
         p << osc::EndMessage;
     
-        if(transmitPort)
-            transmitPort->Send( p.Data(), p.Size() );
+        if(transmitSocket)
+            transmitSocket->Send( p.Data(), p.Size() );
         else
             cout << "Not Connected to an OSC server" << endl;
     }
@@ -204,20 +203,20 @@ class App
             return;
         }
 
-        if(transmitPort)
-            delete transmitPort;
-        transmitPort = NULL;
+        if(transmitSocket)
+            delete transmitSocket;
+        transmitSocket = NULL;
 
-        transmitPort = new UdpTransmitPort(GetHostByName(host.c_str()), port);
+        transmitSocket = new UdpTransmitSocket( IpEndpointName(host.c_str(),port) );
 
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(),'\n');    
     }
     void DisConnect()
     {
-        if(transmitPort)
-            delete transmitPort;
-        transmitPort = NULL;
+        if(transmitSocket)
+            delete transmitSocket;
+        transmitSocket = NULL;
 
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(),'\n');    
@@ -238,7 +237,7 @@ class App
 
         if(service)
             delete service;
-        service = new OscUdpZeroConfService(name.c_str(),port);
+        service = new OscUdpZeroConfService(name.c_str(),port,this);
     }
     void Help()
     {
@@ -250,7 +249,7 @@ class App
     }
 public:
     App()
-        :transmitPort(NULL)
+        :transmitSocket(NULL)
         ,service(NULL)
         ,quit(false)
     {
@@ -264,15 +263,15 @@ public:
     }
     ~App()
     {
-        if(transmitPort)
-            delete transmitPort;
+        if(transmitSocket)
+            delete transmitSocket;
 
         if(service)
             delete service;
     }
     int Run()
     {
-        InitializeNetworking();
+        //InitializeNetworking();
 
         while(!quit)
         {
@@ -301,9 +300,13 @@ public:
         //const char *destip = "localhost";
         //delete transmitPort;
 
-        TerminateNetworking();
+        //TerminateNetworking();
 
         return 0;
+    }
+	virtual void OnRegisterService(const char *name)
+    {
+
     }
 };
 
