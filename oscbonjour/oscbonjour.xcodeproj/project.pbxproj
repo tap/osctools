@@ -1,0 +1,398 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08EA7FFCFE8413EDC02AAC07 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */; };
+		4544398C0A43013800E6C849 /* oscbonjour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4544398B0A43013800E6C849 /* oscbonjour.cpp */; };
+		454439980A43014100E6C849 /* OscUdpZeroConfBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 4544398E0A43014100E6C849 /* OscUdpZeroConfBrowser.h */; };
+		454439990A43014100E6C849 /* OscUdpZeroConfResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4544398F0A43014100E6C849 /* OscUdpZeroConfResolver.h */; };
+		4544399A0A43014100E6C849 /* OscUdpZeroConfService.h in Headers */ = {isa = PBXBuildFile; fileRef = 454439900A43014100E6C849 /* OscUdpZeroConfService.h */; };
+		4544399B0A43014100E6C849 /* OscUdpZeroConfBrowser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 454439920A43014100E6C849 /* OscUdpZeroConfBrowser.cpp */; };
+		4544399C0A43014100E6C849 /* OscUdpZeroConfService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 454439930A43014100E6C849 /* OscUdpZeroConfService.cpp */; };
+		454439B80A4301A600E6C849 /* OscUdpZeroConfResolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 454439B70A4301A600E6C849 /* OscUdpZeroConfResolver.cpp */; };
+		54266BCF05E6E9780000000C /* MaxAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54266BCE05E6E9780000000C /* MaxAPI.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		4F9091AC011F3BD104CA0E50 /* Development */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OPTIMIZATION_CFLAGS = "-O0";
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		4F9091AD011F3BD104CA0E50 /* Deployment */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXBundleTarget section */
+		089C1673FE841209C02AAC07 /* oscbonjour */ = {
+			isa = PBXBundleTarget;
+			buildConfigurationList = 454438A00A42FF0200E6C849 /* Build configuration list for PBXBundleTarget "oscbonjour" */;
+			buildPhases = (
+				089C1674FE841209C02AAC07 /* Headers */,
+				089C1675FE841209C02AAC07 /* Resources */,
+				089C1676FE841209C02AAC07 /* Sources */,
+				089C1677FE841209C02AAC07 /* Frameworks */,
+				089C1679FE841209C02AAC07 /* Rez */,
+			);
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "\"$(LOCAL_LIBRARY_DIR)/Frameworks\"";
+				HEADER_SEARCH_PATHS = (
+					../../../TNT/tnt,
+					../../../TNT/jama,
+					"../../../MaxMSP-SDK/c74support/max-includes",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRECOMPILE_PREFIX_HEADER = YES;
+				PREFIX_HEADER = "../../../MaxMSP-SDK/c74support/max-includes/ext_carbon_prefix.h";
+				PRODUCT_NAME = matmap;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = mxo;
+			};
+			dependencies = (
+			);
+			name = oscbonjour;
+			productName = matmap;
+			productReference = 4F9091AB011F3BD104CA0E50 /* oscbonjour.mxo */;
+			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>oscbonjour</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string></string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>oscbonjour</string>
+	<key>CFBundlePackageType</key>
+	<string>iLaX</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>0.0.1d1</string>
+	<key>CSResourcesFileMapped</key>
+	<true/>
+</dict>
+</plist>
+";
+		};
+/* End PBXBundleTarget section */
+
+/* Begin PBXFileReference section */
+		08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		4544398B0A43013800E6C849 /* oscbonjour.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = oscbonjour.cpp; sourceTree = SOURCE_ROOT; };
+		4544398E0A43014100E6C849 /* OscUdpZeroConfBrowser.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = OscUdpZeroConfBrowser.h; sourceTree = "<group>"; };
+		4544398F0A43014100E6C849 /* OscUdpZeroConfResolver.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = OscUdpZeroConfResolver.h; sourceTree = "<group>"; };
+		454439900A43014100E6C849 /* OscUdpZeroConfService.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = OscUdpZeroConfService.h; sourceTree = "<group>"; };
+		454439920A43014100E6C849 /* OscUdpZeroConfBrowser.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = OscUdpZeroConfBrowser.cpp; path = posix/OscUdpZeroConfBrowser.cpp; sourceTree = "<group>"; };
+		454439930A43014100E6C849 /* OscUdpZeroConfService.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = OscUdpZeroConfService.cpp; path = posix/OscUdpZeroConfService.cpp; sourceTree = "<group>"; };
+		454439B70A4301A600E6C849 /* OscUdpZeroConfResolver.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = OscUdpZeroConfResolver.cpp; path = posix/OscUdpZeroConfResolver.cpp; sourceTree = "<group>"; };
+		4F9091AB011F3BD104CA0E50 /* oscbonjour.mxo */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = oscbonjour.mxo; sourceTree = BUILT_PRODUCTS_DIR; };
+		54266BCE05E6E9780000000C /* MaxAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MaxAPI.framework; path = /Library/Frameworks/MaxAPI.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		089C1677FE841209C02AAC07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08EA7FFCFE8413EDC02AAC07 /* Carbon.framework in Frameworks */,
+				54266BCF05E6E9780000000C /* MaxAPI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* matmap */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77ADFE841716C02AAC07 /* Source */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
+				19C28FB4FE9D528D11CA2CBB /* Products */,
+			);
+			name = matmap;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				54266BCE05E6E9780000000C /* MaxAPI.framework */,
+				08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77ADFE841716C02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				4544398B0A43013800E6C849 /* oscbonjour.cpp */,
+				4544398D0A43014100E6C849 /* zeroconf */,
+			);
+			name = Source;
+			sourceTree = SOURCE_ROOT;
+		};
+		19C28FB4FE9D528D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F9091AB011F3BD104CA0E50 /* oscbonjour.mxo */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4544398D0A43014100E6C849 /* zeroconf */ = {
+			isa = PBXGroup;
+			children = (
+				454439B70A4301A600E6C849 /* OscUdpZeroConfResolver.cpp */,
+				454439920A43014100E6C849 /* OscUdpZeroConfBrowser.cpp */,
+				454439930A43014100E6C849 /* OscUdpZeroConfService.cpp */,
+				4544398E0A43014100E6C849 /* OscUdpZeroConfBrowser.h */,
+				4544398F0A43014100E6C849 /* OscUdpZeroConfResolver.h */,
+				454439900A43014100E6C849 /* OscUdpZeroConfService.h */,
+			);
+			name = zeroconf;
+			path = ../zeroconf;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		089C1674FE841209C02AAC07 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				454439980A43014100E6C849 /* OscUdpZeroConfBrowser.h in Headers */,
+				454439990A43014100E6C849 /* OscUdpZeroConfResolver.h in Headers */,
+				4544399A0A43014100E6C849 /* OscUdpZeroConfService.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 454438A40A42FF0200E6C849 /* Build configuration list for PBXProject "oscbonjour" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				4F9091AC011F3BD104CA0E50 /* Development */,
+				4F9091AD011F3BD104CA0E50 /* Deployment */,
+			);
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* matmap */;
+			projectDirPath = "";
+			targets = (
+				089C1673FE841209C02AAC07 /* oscbonjour */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		089C1675FE841209C02AAC07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		089C1679FE841209C02AAC07 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		089C1676FE841209C02AAC07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4544398C0A43013800E6C849 /* oscbonjour.cpp in Sources */,
+				4544399B0A43014100E6C849 /* OscUdpZeroConfBrowser.cpp in Sources */,
+				4544399C0A43014100E6C849 /* OscUdpZeroConfService.cpp in Sources */,
+				454439B80A4301A600E6C849 /* OscUdpZeroConfResolver.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		454438A10A42FF0200E6C849 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "\"$(LOCAL_LIBRARY_DIR)/Frameworks\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					"../MaxMSP-SDK/c74support/max-includes",
+					../zeroconf,
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRECOMPILE_PREFIX_HEADER = YES;
+				PREFIX_HEADER = "../MaxMSP-SDK/c74support/max-includes/ext_carbon_prefix.h";
+				PRODUCT_NAME = oscbonjour;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = mxo;
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		454438A20A42FF0200E6C849 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(LOCAL_LIBRARY_DIR)/Frameworks\"";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				HEADER_SEARCH_PATHS = (
+					../zeroconf,
+					"../MaxMSP-SDK/c74support/max-includes",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRECOMPILE_PREFIX_HEADER = YES;
+				PREFIX_HEADER = "../MaxMSP-SDK/c74support/max-includes/ext_carbon_prefix.h";
+				PRODUCT_NAME = oscbonjour;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = mxo;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		454438A30A42FF0200E6C849 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "\"$(LOCAL_LIBRARY_DIR)/Frameworks\"";
+				HEADER_SEARCH_PATHS = (
+					../zeroconf,
+					"../MaxMSP-SDK/c74support/max-includes",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRECOMPILE_PREFIX_HEADER = YES;
+				PREFIX_HEADER = "../MaxMSP-SDK/c74support/max-includes/ext_carbon_prefix.h";
+				PRODUCT_NAME = oscbonjour;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = mxo;
+			};
+			name = Default;
+		};
+		454438A50A42FF0200E6C849 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Development;
+		};
+		454438A60A42FF0200E6C849 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Deployment;
+		};
+		454438A70A42FF0200E6C849 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		454438A00A42FF0200E6C849 /* Build configuration list for PBXBundleTarget "oscbonjour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				454438A10A42FF0200E6C849 /* Development */,
+				454438A20A42FF0200E6C849 /* Deployment */,
+				454438A30A42FF0200E6C849 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		454438A40A42FF0200E6C849 /* Build configuration list for PBXProject "oscbonjour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				454438A50A42FF0200E6C849 /* Development */,
+				454438A60A42FF0200E6C849 /* Deployment */,
+				454438A70A42FF0200E6C849 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
