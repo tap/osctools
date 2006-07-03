@@ -173,7 +173,7 @@ wxTreeItemId MyFindItem(wxTreeCtrl *tree, const wxTreeItemId& parent,const wxStr
     return item;
 }
 //-----------------------------------------------------------------------------------------
-void oscbrowserFrame::OnResolveService(string fullName,string hostTarget,int port,string txtRecord)
+void oscbrowserFrame::OnResolveService(const char *fullName,const char *hostTarget,int port,const char *txtRecord)
 {
     wxStringTokenizer tokenizer(fullName,".",wxTOKEN_STRTOK);
     
@@ -210,7 +210,7 @@ void oscbrowserFrame::OnResolveService(string fullName,string hostTarget,int por
     item = AppendItem(tree,item,ipstr+wxT(":")+portstr);
 }
 //-----------------------------------------------------------------------------------------
-void oscbrowserFrame::OnAddService(string name,string type,string domain)
+void oscbrowserFrame::OnAddService(const char *name,const char *type,const char *domain)
 {
     wxTreeItemId item = tree->GetRootItem();
 
@@ -233,10 +233,10 @@ void oscbrowserFrame::OnAddService(string name,string type,string domain)
     item = AppendItem(tree,item,name);
     tree->SetItemBold(item);
 
-    resolvers[name] = new OscUdpZeroConfResolver(name.c_str(),type.c_str(),domain.c_str(),this);
+    resolvers[name] = new OscUdpZeroConfResolver(name,type,domain,this);
 }
 //-----------------------------------------------------------------------------------------
-void oscbrowserFrame::OnRemoveService(string name,string type,string domain)
+void oscbrowserFrame::OnRemoveService(const char *name,const char *type,const char *domain)
 {
     wxTreeItemId rootitem = tree->GetRootItem(); if(!rootitem.IsOk()) return;
 

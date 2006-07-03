@@ -49,11 +49,11 @@ public:
 	void OnAbout(wxCommandEvent& event);
 
     // OSC Browser
-    void OnAddService(string name,string type,string domain);
-    void OnRemoveService(string name,string type,string domain);
+    void OnAddService(const char *name,const char *type,const char *domain);
+    void OnRemoveService(const char *name,const char *type,const char *domain);
 
     // OSC Resolver
-    void OnResolveService(string fullName,string hostTarget,int port,string txtRecord);
+    void OnResolveService(const char *fullName,const char *hostTarget,int port,const char *txtRecord);
 
 private:
 	DECLARE_CLASS(oscbrowserFrame)

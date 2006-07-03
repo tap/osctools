@@ -17,7 +17,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;..\..\wxWidgets-2.6.1\lib\vc_lib\mswd&quot;;&quot;..\..\wxWidgets-2.6.1\include&quot;;..\oscpack\osc\;..\oscpack\ip\;..\oscpack\;..\oscpack\zeroconf"
+				AdditionalIncludeDirectories="&quot;..\wxWidgets-2.6.1\lib\vc_lib\mswd&quot;;&quot;..\wxWidgets-2.6.1\include&quot;;..\oscpack\osc\;..\oscpack\ip\;..\oscpack\;..\zeroconf"
 				PreprocessorDefinitions="WIN32;__WIN32__;_DEBUG;_WINDOWS;wxUSE_GUI=1;__WXDEBUG__"
 				RuntimeLibrary="3"
 				Detect64BitPortabilityProblems="FALSE"
@@ -27,7 +27,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="comctl32.lib wsock32.lib wxbase26d.lib wxmsw26d_adv.lib wxmsw26d_core.lib rpcrt4.lib wxjpegd.lib wxpngd.lib wxregexd.lib wxtiffd.lib wxzlibd.lib dnssd.lib winmm.lib ws2_32.lib"
-				AdditionalLibraryDirectories="&quot;..\..\wxWidgets-2.6.1\lib\vc_lib&quot;;&quot;..\mDNSResponder-107.5\mDNSWindows\DLL\Release\&quot;"
+				AdditionalLibraryDirectories="&quot;..\wxWidgets-2.6.1\lib\vc_lib&quot;"
 				GenerateDebugInformation="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"/>
@@ -39,7 +39,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="&quot;..\..\wxWidgets-2.6.1\include\&quot;"/>
+				AdditionalIncludeDirectories="&quot;..\wxWidgets-2.6.1\include\&quot;"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -59,7 +59,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="&quot;..\..\wxWidgets-2.6.1\lib\vc_lib\msw&quot;;&quot;..\..\wxWidgets-2.6.1\include&quot;;..\oscpack\ip;..\oscpack\osc;..\oscpack;..\oscpack\zeroconf"
+				AdditionalIncludeDirectories="&quot;..\wxWidgets-2.6.1\lib\vc_lib\msw&quot;;&quot;..\wxWidgets-2.6.1\include&quot;;..\oscpack\ip;..\oscpack\osc;..\oscpack;..\zeroconf"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;wxUSE_GUI=1;__WIN32__"
 				RuntimeLibrary="2"
 				Detect64BitPortabilityProblems="FALSE"
@@ -69,7 +69,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="comctl32.lib wsock32.lib wxbase26.lib wxmsw26_adv.lib wxmsw26_core.lib rpcrt4.lib wxjpeg.lib wxpng.lib wxregex.lib wxtiff.lib wxzlib.lib dnssd.lib winmm.lib ws2_32.lib"
-				AdditionalLibraryDirectories="&quot;..\..\wxWidgets-2.6.1\lib\vc_lib&quot;;&quot;..\mDNSResponder-107.5\mDNSWindows\DLL\Release\&quot;"/>
+				AdditionalLibraryDirectories="&quot;..\wxWidgets-2.6.1\lib\vc_lib&quot;"/>
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
@@ -80,7 +80,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="&quot;D:\projects\ircam\wxWidgets-2.6.1\include&quot;"/>
+				AdditionalIncludeDirectories="&quot;..\wxWidgets-2.6.1\include\&quot;"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -281,32 +281,38 @@
 					RelativePath="..\oscpack\osc\OscTypes.h">
 				</File>
 			</Filter>
-			<Filter
-				Name="zeroconf"
-				Filter="">
-				<File
-					RelativePath="..\oscpack\zeroconf\win32\OscUdpZeroConfBrowser.cpp">
-				</File>
-				<File
-					RelativePath="..\oscpack\zeroconf\OscUdpZeroConfBrowser.h">
-				</File>
-				<File
-					RelativePath="..\oscpack\zeroconf\win32\OscUdpZeroConfResolver.cpp">
-				</File>
-				<File
-					RelativePath="..\oscpack\zeroconf\OscUdpZeroConfResolver.h">
-				</File>
-				<File
-					RelativePath="..\oscpack\zeroconf\win32\OscUdpZeroConfService.cpp">
-				</File>
-				<File
-					RelativePath="..\oscpack\zeroconf\OscUdpZeroConfService.h">
-				</File>
-			</Filter>
 		</Filter>
-		<File
-			RelativePath=".\resource.h">
-		</File>
+		<Filter
+			Name="zeroconf"
+			Filter="">
+			<File
+				RelativePath="..\zeroconf\win32\OscUdpZeroConfBrowser.cpp">
+			</File>
+			<File
+				RelativePath="..\zeroconf\OscUdpZeroConfBrowser.h">
+			</File>
+			<File
+				RelativePath="..\zeroconf\win32\OscUdpZeroConfResolver.cpp">
+			</File>
+			<File
+				RelativePath="..\zeroconf\OscUdpZeroConfResolver.h">
+			</File>
+			<File
+				RelativePath="..\zeroconf\win32\OscUdpZeroConfService.cpp">
+			</File>
+			<File
+				RelativePath="..\zeroconf\OscUdpZeroConfService.h">
+			</File>
+			<File
+				RelativePath=".\resource.h">
+			</File>
+			<File
+				RelativePath="..\zeroconf\win32\ZeroConf.cpp">
+			</File>
+			<File
+				RelativePath="..\zeroconf\ZeroConf.h">
+			</File>
+		</Filter>
 	</Files>
 	<Globals>
 	</Globals>
