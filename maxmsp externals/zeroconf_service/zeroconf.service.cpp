@@ -3,7 +3,7 @@
 
 #include "ext.h"				
 #include "ext_obex.h"						
-#include "NetService.h"
+#include "zeroconf/NetService.h"
 #include <iostream>
 
 using namespace ZeroConf;

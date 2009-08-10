@@ -2,7 +2,7 @@
 #include <cassert>
 #include <cmath>
 #include <iostream>
-#include <sys/time.h>
+//#include <sys/time.h>
 
 using namespace ZeroConf;
 

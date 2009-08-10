@@ -1,5 +1,5 @@
 /*
-	Copyright (c) 2005 RÈmy Muller. 
+	Copyright (c) 2009 Remy Muller. 
 	
 	Permission is hereby granted, free of charge, to any person obtaining
 	a copy of this software and associated documentation files
@@ -26,38 +26,37 @@
 */
 
 
-#ifndef __Thread_H__
-#define __Thread_H__
+#ifndef ZeroConf_Thread_H
+#define ZeroConf_Thread_H
 
-#include "CriticalSection.h"
+#include "zeroconf/CriticalSection.h"
 
-namespace ZeroConf {
-
-class Thread
+namespace ZeroConf 
 {
-public:
-	Thread();
-	virtual ~Thread();
-	
-	virtual void run() = 0;
-	
-	void startThread();
-	void stopThread(const int timeOut=-1);
-	
-	bool isThreadRunning() const;
-	bool threadShouldExit() const;
-	void setThreadShouldExit();
-	bool waitForThreadToExit(const int timeOut=-1);
-				
-	static void sleep(int ms);
-	static void threadEntryPoint(Thread *pThread);
-	
-private:
-	void *mpThreadHandle;
-	CriticalSection mCriticalSection;
-	bool mShouldExit;
-};
+  class Thread
+  {
+  public:
+    Thread();
+    virtual ~Thread();
 
+    virtual void run() = 0;
+
+    void startThread();
+    void stopThread(const int timeOut=-1);
+
+    bool isThreadRunning() const;
+    bool threadShouldExit() const;
+    void setThreadShouldExit();
+    bool waitForThreadToExit(const int timeOut=-1);
+
+    static void sleep(int ms);
+    static void threadEntryPoint(Thread *pThread);
+
+  private:
+    void *mpThreadHandle;
+    CriticalSection mCriticalSection;
+    bool mShouldExit;
+  };
 }
 
 #endif
