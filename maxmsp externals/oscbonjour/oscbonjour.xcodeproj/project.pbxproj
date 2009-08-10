@@ -3,36 +3,44 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 45;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0F5B62030919440900A62EB9 /* MaxAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5B62020919440900A62EB9 /* MaxAPI.framework */; };
-		0FF3254009473DCC00B01934 /* MaxAudioAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF3253F09473DCC00B01934 /* MaxAudioAPI.framework */; };
 		45A57D8C0B04F95400FF8034 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45A57D8B0B04F95400FF8034 /* Info.plist */; };
+		45EB42971030808500AB8A5C /* Thread.h in Headers */ = {isa = PBXBuildFile; fileRef = 45EB428D1030808500AB8A5C /* Thread.h */; };
+		45EB42981030808500AB8A5C /* CriticalSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45EB428E1030808500AB8A5C /* CriticalSection.cpp */; };
+		45EB42991030808500AB8A5C /* CriticalSection.h in Headers */ = {isa = PBXBuildFile; fileRef = 45EB428F1030808500AB8A5C /* CriticalSection.h */; };
+		45EB429A1030808500AB8A5C /* NetService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45EB42901030808500AB8A5C /* NetService.cpp */; };
+		45EB429B1030808500AB8A5C /* NetService.h in Headers */ = {isa = PBXBuildFile; fileRef = 45EB42911030808500AB8A5C /* NetService.h */; };
+		45EB429C1030808500AB8A5C /* NetServiceBrowser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45EB42921030808500AB8A5C /* NetServiceBrowser.cpp */; };
+		45EB429D1030808500AB8A5C /* NetServiceBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 45EB42931030808500AB8A5C /* NetServiceBrowser.h */; };
+		45EB429E1030808500AB8A5C /* NetServiceThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45EB42941030808500AB8A5C /* NetServiceThread.cpp */; };
+		45EB429F1030808500AB8A5C /* NetServiceThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 45EB42951030808500AB8A5C /* NetServiceThread.h */; };
+		45EB42A01030808500AB8A5C /* Thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45EB42961030808500AB8A5C /* Thread.cpp */; };
+		45EB42A4103080A600AB8A5C /* maxmspsdk.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 45EB42A3103080A600AB8A5C /* maxmspsdk.xcconfig */; };
 		56F0EDEC0B04DDAD00FAAA58 /* oscbonjour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56F0EDEB0B04DDAD00FAAA58 /* oscbonjour.cpp */; };
-		56F0EE450B04E32000FAAA58 /* OscUdpZeroConfBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 56F0EE420B04E32000FAAA58 /* OscUdpZeroConfBrowser.h */; };
-		56F0EE460B04E32000FAAA58 /* OscUdpZeroConfResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 56F0EE430B04E32000FAAA58 /* OscUdpZeroConfResolver.h */; };
-		56F0EE470B04E32000FAAA58 /* OscUdpZeroConfService.h in Headers */ = {isa = PBXBuildFile; fileRef = 56F0EE440B04E32000FAAA58 /* OscUdpZeroConfService.h */; };
-		56F0EE4B0B04E33300FAAA58 /* OscUdpZeroConfBrowser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56F0EE480B04E33300FAAA58 /* OscUdpZeroConfBrowser.cpp */; };
-		56F0EE4C0B04E33300FAAA58 /* OscUdpZeroConfResolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56F0EE490B04E33300FAAA58 /* OscUdpZeroConfResolver.cpp */; };
-		56F0EE4D0B04E33300FAAA58 /* OscUdpZeroConfService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56F0EE4A0B04E33300FAAA58 /* OscUdpZeroConfService.cpp */; };
 		8D01CCCE0486CAD60068D4B7 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		0F5B62020919440900A62EB9 /* MaxAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MaxAPI.framework; path = /Library/Frameworks/MaxAPI.framework; sourceTree = "<absolute>"; };
-		0FF3253F09473DCC00B01934 /* MaxAudioAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MaxAudioAPI.framework; path = /Library/Frameworks/MaxAudioAPI.framework; sourceTree = "<absolute>"; };
-		45A57D8B0B04F95400FF8034 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F5B62020919440900A62EB9 /* MaxAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MaxAPI.framework; path = "../MaxSDK-5.0.6/c74support/max-includes/MaxAPI.framework"; sourceTree = SOURCE_ROOT; };
+		45A57D8B0B04F95400FF8034 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45EB428D1030808500AB8A5C /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Thread.h; path = ../../zeroconf/Thread.h; sourceTree = SOURCE_ROOT; };
+		45EB428E1030808500AB8A5C /* CriticalSection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CriticalSection.cpp; path = ../../zeroconf/CriticalSection.cpp; sourceTree = SOURCE_ROOT; };
+		45EB428F1030808500AB8A5C /* CriticalSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CriticalSection.h; path = ../../zeroconf/CriticalSection.h; sourceTree = SOURCE_ROOT; };
+		45EB42901030808500AB8A5C /* NetService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetService.cpp; path = ../../zeroconf/NetService.cpp; sourceTree = SOURCE_ROOT; };
+		45EB42911030808500AB8A5C /* NetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetService.h; path = ../../zeroconf/NetService.h; sourceTree = SOURCE_ROOT; };
+		45EB42921030808500AB8A5C /* NetServiceBrowser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetServiceBrowser.cpp; path = ../../zeroconf/NetServiceBrowser.cpp; sourceTree = SOURCE_ROOT; };
+		45EB42931030808500AB8A5C /* NetServiceBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetServiceBrowser.h; path = ../../zeroconf/NetServiceBrowser.h; sourceTree = SOURCE_ROOT; };
+		45EB42941030808500AB8A5C /* NetServiceThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetServiceThread.cpp; path = ../../zeroconf/NetServiceThread.cpp; sourceTree = SOURCE_ROOT; };
+		45EB42951030808500AB8A5C /* NetServiceThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetServiceThread.h; path = ../../zeroconf/NetServiceThread.h; sourceTree = SOURCE_ROOT; };
+		45EB42961030808500AB8A5C /* Thread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Thread.cpp; path = ../../zeroconf/Thread.cpp; sourceTree = SOURCE_ROOT; };
+		45EB42A3103080A600AB8A5C /* maxmspsdk.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = maxmspsdk.xcconfig; path = ../maxmspsdk.xcconfig; sourceTree = SOURCE_ROOT; };
 		56F0EDEB0B04DDAD00FAAA58 /* oscbonjour.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = oscbonjour.cpp; sourceTree = "<group>"; };
 		56F0EE240B04E0E700FAAA58 /* oscbonjour.mxo */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = oscbonjour.mxo; sourceTree = BUILT_PRODUCTS_DIR; };
-		56F0EE420B04E32000FAAA58 /* OscUdpZeroConfBrowser.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = OscUdpZeroConfBrowser.h; path = ../zeroconf/OscUdpZeroConfBrowser.h; sourceTree = SOURCE_ROOT; };
-		56F0EE430B04E32000FAAA58 /* OscUdpZeroConfResolver.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = OscUdpZeroConfResolver.h; path = ../zeroconf/OscUdpZeroConfResolver.h; sourceTree = SOURCE_ROOT; };
-		56F0EE440B04E32000FAAA58 /* OscUdpZeroConfService.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = OscUdpZeroConfService.h; path = ../zeroconf/OscUdpZeroConfService.h; sourceTree = SOURCE_ROOT; };
-		56F0EE480B04E33300FAAA58 /* OscUdpZeroConfBrowser.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = OscUdpZeroConfBrowser.cpp; path = ../zeroconf/posix/OscUdpZeroConfBrowser.cpp; sourceTree = SOURCE_ROOT; };
-		56F0EE490B04E33300FAAA58 /* OscUdpZeroConfResolver.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = OscUdpZeroConfResolver.cpp; path = ../zeroconf/posix/OscUdpZeroConfResolver.cpp; sourceTree = SOURCE_ROOT; };
-		56F0EE4A0B04E33300FAAA58 /* OscUdpZeroConfService.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = OscUdpZeroConfService.cpp; path = ../zeroconf/posix/OscUdpZeroConfService.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +50,6 @@
 			files = (
 				8D01CCCE0486CAD60068D4B7 /* Carbon.framework in Frameworks */,
 				0F5B62030919440900A62EB9 /* MaxAPI.framework in Frameworks */,
-				0FF3254009473DCC00B01934 /* MaxAudioAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +70,6 @@
 		089C1671FE841209C02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				0FF3253F09473DCC00B01934 /* MaxAudioAPI.framework */,
 				0F5B62020919440900A62EB9 /* MaxAPI.framework */,
 				08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */,
 			);
@@ -81,13 +87,18 @@
 		08FB77ADFE841716C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				56F0EE480B04E33300FAAA58 /* OscUdpZeroConfBrowser.cpp */,
-				56F0EE490B04E33300FAAA58 /* OscUdpZeroConfResolver.cpp */,
-				56F0EE4A0B04E33300FAAA58 /* OscUdpZeroConfService.cpp */,
-				56F0EE420B04E32000FAAA58 /* OscUdpZeroConfBrowser.h */,
-				56F0EE430B04E32000FAAA58 /* OscUdpZeroConfResolver.h */,
-				56F0EE440B04E32000FAAA58 /* OscUdpZeroConfService.h */,
+				45EB42A3103080A600AB8A5C /* maxmspsdk.xcconfig */,
 				56F0EDEB0B04DDAD00FAAA58 /* oscbonjour.cpp */,
+				45EB428D1030808500AB8A5C /* Thread.h */,
+				45EB428E1030808500AB8A5C /* CriticalSection.cpp */,
+				45EB428F1030808500AB8A5C /* CriticalSection.h */,
+				45EB42901030808500AB8A5C /* NetService.cpp */,
+				45EB42911030808500AB8A5C /* NetService.h */,
+				45EB42921030808500AB8A5C /* NetServiceBrowser.cpp */,
+				45EB42931030808500AB8A5C /* NetServiceBrowser.h */,
+				45EB42941030808500AB8A5C /* NetServiceThread.cpp */,
+				45EB42951030808500AB8A5C /* NetServiceThread.h */,
+				45EB42961030808500AB8A5C /* Thread.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -107,9 +118,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56F0EE450B04E32000FAAA58 /* OscUdpZeroConfBrowser.h in Headers */,
-				56F0EE460B04E32000FAAA58 /* OscUdpZeroConfResolver.h in Headers */,
-				56F0EE470B04E32000FAAA58 /* OscUdpZeroConfService.h in Headers */,
+				45EB42971030808500AB8A5C /* Thread.h in Headers */,
+				45EB42991030808500AB8A5C /* CriticalSection.h in Headers */,
+				45EB429B1030808500AB8A5C /* NetService.h in Headers */,
+				45EB429D1030808500AB8A5C /* NetServiceBrowser.h in Headers */,
+				45EB429F1030808500AB8A5C /* NetServiceThread.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,9 +155,11 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 0FFBC544097463A900D78707 /* Build configuration list for PBXProject "oscbonjour" */;
+			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
 			mainGroup = 089C166AFE841209C02AAC07 /* plus~ */;
 			projectDirPath = "";
+			projectRoot = "";
 			targets = (
 				8D01CCC60486CAD60068D4B7 /* oscbonjour */,
 			);
@@ -157,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45A57D8C0B04F95400FF8034 /* Info.plist in Resources */,
+				45EB42A4103080A600AB8A5C /* maxmspsdk.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,9 +194,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				56F0EDEC0B04DDAD00FAAA58 /* oscbonjour.cpp in Sources */,
-				56F0EE4B0B04E33300FAAA58 /* OscUdpZeroConfBrowser.cpp in Sources */,
-				56F0EE4C0B04E33300FAAA58 /* OscUdpZeroConfResolver.cpp in Sources */,
-				56F0EE4D0B04E33300FAAA58 /* OscUdpZeroConfService.cpp in Sources */,
+				45EB42981030808500AB8A5C /* CriticalSection.cpp in Sources */,
+				45EB429A1030808500AB8A5C /* NetService.cpp in Sources */,
+				45EB429C1030808500AB8A5C /* NetServiceBrowser.cpp in Sources */,
+				45EB429E1030808500AB8A5C /* NetServiceThread.cpp in Sources */,
+				45EB42A01030808500AB8A5C /* Thread.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,119 +207,22 @@
 /* Begin XCBuildConfiguration section */
 		0FFBC541097463A900D78707 /* Development */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45EB42A3103080A600AB8A5C /* maxmspsdk.xcconfig */;
 			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				DEBUGGING_SYMBOLS = YES;
-				DEPLOYMENT_LOCATION = NO;
-				DSTROOT = "$(PROJECT_DIR)";
-				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_ENABLE_TRIGRAPHS = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../MaxMSP UB SDK/c74support/max-includes/macho-prefix.h";
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				GENERATE_PKGINFO_FILE = YES;
-				HEADER_SEARCH_PATHS = "$(HEADER_SEARCH_PATHS_QUOTED_1)";
-				HEADER_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../MaxMSP UB SDK/c74support/max-includes\"";
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "/../../../sysbuild/$(CONFIGURATION)/Cycling '74/externals";
-				LIBRARY_SEARCH_PATHS = "";
-				LIBRARY_STYLE = Bundle;
-				OPTIMIZATION_CFLAGS = "-O0";
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = oscbonjour;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-				WRAPPER_EXTENSION = mxo;
-				ZERO_LINK = YES;
 			};
 			name = Development;
 		};
 		0FFBC542097463A900D78707 /* Deployment */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45EB42A3103080A600AB8A5C /* maxmspsdk.xcconfig */;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
-				COPY_PHASE_STRIP = YES;
-				DEPLOYMENT_LOCATION = NO;
-				DSTROOT = "$(PROJECT_DIR)";
-				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_TRIGRAPHS = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../MaxMSP UB SDK/c74support/max-includes/macho-prefix.h";
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				GENERATE_PKGINFO_FILE = YES;
-				HEADER_SEARCH_PATHS = "$(HEADER_SEARCH_PATHS_QUOTED_1)";
-				HEADER_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../MaxMSP UB SDK/c74support/max-includes\"";
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "/../../../sysbuild/$(CONFIGURATION)/Cycling '74/externals";
-				LIBRARY_SEARCH_PATHS = "";
-				LIBRARY_STYLE = Bundle;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = oscbonjour;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-				WRAPPER_EXTENSION = mxo;
-				ZERO_LINK = NO;
 			};
 			name = Deployment;
 		};
 		0FFBC543097463A900D78707 /* Default */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45EB42A3103080A600AB8A5C /* maxmspsdk.xcconfig */;
 			buildSettings = {
-				DEPLOYMENT_LOCATION = NO;
-				DSTROOT = "$(PROJECT_DIR)";
-				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
-				GCC_ENABLE_TRIGRAPHS = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "../MaxMSP UB SDK/c74support/max-includes/macho-prefix.h";
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				GENERATE_PKGINFO_FILE = YES;
-				HEADER_SEARCH_PATHS = "$(HEADER_SEARCH_PATHS_QUOTED_1)";
-				HEADER_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../MaxMSP UB SDK/c74support/max-includes\"";
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "/../../../sysbuild/$(CONFIGURATION)/Cycling '74/externals";
-				LIBRARY_SEARCH_PATHS = "";
-				LIBRARY_STYLE = Bundle;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = "plus~";
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-				WRAPPER_EXTENSION = mxo;
 			};
 			name = Default;
 		};

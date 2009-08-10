@@ -6,7 +6,6 @@
 		addToTargets = (
 			8D01CCC60486CAD60068D4B7 /* oscbonjour */,
 		);
-		breakpointsGroup = 45A57D6C0B04F81200FF8034 /* XCBreakpointsBucket */;
 		codeSenseManager = 45A57D6B0B04F81200FF8034 /* Code sense */;
 		perUserDictionary = {
 			PBXConfiguration.PBXFileTableDataSource3.PBXErrorsWarningsDataSource = {
@@ -50,8 +49,8 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					200,
-					814,
+					866,
+					60,
 					20,
 					48,
 					43,
@@ -67,8 +66,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 184875862;
-			PBXWorkspaceStateSaveDate = 184875862;
+			PBXPerProjectTemplateStateSaveDate = 271614020;
+			PBXWorkspaceStateSaveDate = 271614020;
 		};
 		perUserProjectItems = {
 			45A57D740B04F85B00FF8034 = 45A57D740B04F85B00FF8034 /* PBXTextBookmark */;
@@ -89,6 +88,10 @@
 			45A57DA70B04F9C900FF8034 = 45A57DA70B04F9C900FF8034 /* PBXTextBookmark */;
 			45A57DA80B04F9C900FF8034 = 45A57DA80B04F9C900FF8034 /* PBXTextBookmark */;
 			45A57DA90B04F9C900FF8034 = 45A57DA90B04F9C900FF8034 /* PBXTextBookmark */;
+			45EB42A7103080E000AB8A5C /* PBXBookmark */ = 45EB42A7103080E000AB8A5C /* PBXBookmark */;
+			45EB42A8103080E000AB8A5C /* PBXTextBookmark */ = 45EB42A8103080E000AB8A5C /* PBXTextBookmark */;
+			45EB42A9103080F500AB8A5C /* PBXTextBookmark */ = 45EB42A9103080F500AB8A5C /* PBXTextBookmark */;
+			45EB42AA103080F500AB8A5C /* PBXTextBookmark */ = 45EB42AA103080F500AB8A5C /* PBXTextBookmark */;
 		};
 		sourceControlManager = 45A57D6A0B04F81200FF8034 /* Source Control */;
 		userBuildSettings = {
@@ -105,12 +108,6 @@
 	45A57D6B0B04F81200FF8034 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
-	};
-	45A57D6C0B04F81200FF8034 /* XCBreakpointsBucket */ = {
-		isa = XCBreakpointsBucket;
-		name = "Project Breakpoints";
-		objects = (
-		);
 	};
 	45A57D740B04F85B00FF8034 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -297,6 +294,47 @@
 		vrLen = 400;
 		vrLoc = 963;
 	};
+	45EB42A3103080A600AB8A5C /* maxmspsdk.xcconfig */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1090, 546}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1280}";
+		};
+	};
+	45EB42A7103080E000AB8A5C /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 45EB42A3103080A600AB8A5C /* maxmspsdk.xcconfig */;
+	};
+	45EB42A8103080E000AB8A5C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 45EB42A3103080A600AB8A5C /* maxmspsdk.xcconfig */;
+		name = "maxmspsdk.xcconfig: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1280;
+		vrLoc = 0;
+	};
+	45EB42A9103080F500AB8A5C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 45EB42A3103080A600AB8A5C /* maxmspsdk.xcconfig */;
+		name = "maxmspsdk.xcconfig: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1280;
+		vrLoc = 0;
+	};
+	45EB42AA103080F500AB8A5C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 45EB42A3103080A600AB8A5C /* maxmspsdk.xcconfig */;
+		name = "maxmspsdk.xcconfig: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1280;
+		vrLoc = 0;
+	};
 	56F0EDEB0B04DDAD00FAAA58 /* oscbonjour.cpp */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1186, 3892}}";
@@ -305,6 +343,12 @@
 		};
 	};
 	56F0EE420B04E32000FAAA58 /* OscUdpZeroConfBrowser.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 30;
+		lastKnownFileType = sourcecode.c.h;
+		name = OscUdpZeroConfBrowser.h;
+		path = "/Users/muller/projects/osctools/maxmsp externals/zeroconf/OscUdpZeroConfBrowser.h";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1187, 714}}";
 			sepNavSelRange = "{1439, 3}";
@@ -312,6 +356,12 @@
 		};
 	};
 	56F0EE480B04E33300FAAA58 /* OscUdpZeroConfBrowser.cpp */ = {
+		isa = PBXFileReference;
+		fileEncoding = 30;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OscUdpZeroConfBrowser.cpp;
+		path = "/Users/muller/projects/osctools/maxmsp externals/zeroconf/posix/OscUdpZeroConfBrowser.cpp";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1186, 2016}}";
 			sepNavSelRange = "{1112, 72}";
@@ -319,6 +369,12 @@
 		};
 	};
 	56F0EE490B04E33300FAAA58 /* OscUdpZeroConfResolver.cpp */ = {
+		isa = PBXFileReference;
+		fileEncoding = 30;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OscUdpZeroConfResolver.cpp;
+		path = "/Users/muller/projects/osctools/maxmsp externals/zeroconf/posix/OscUdpZeroConfResolver.cpp";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1187, 1848}}";
 			sepNavSelRange = "{180, 27}";
@@ -326,6 +382,12 @@
 		};
 	};
 	56F0EE4A0B04E33300FAAA58 /* OscUdpZeroConfService.cpp */ = {
+		isa = PBXFileReference;
+		fileEncoding = 30;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = OscUdpZeroConfService.cpp;
+		path = "/Users/muller/projects/osctools/maxmsp externals/zeroconf/posix/OscUdpZeroConfService.cpp";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1187, 2254}}";
 			sepNavSelRange = "{1252, 71}";
