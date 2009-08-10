@@ -134,11 +134,15 @@ namespace ZeroConf
     
     void setPort(int port);
 		const int getPort() const {return mPort; }
-		
+
+    void setHostName(const std::string &name);
+		const std::string& getHostName() const { return mHostName; }
+
 	private:
 		std::string mDomain;
 		std::string mType;
 		std::string mName;
+    std::string mHostName;
 		int mPort;
 		std::string mTXTRecordData;
 		NetServiceListener *mpListener;

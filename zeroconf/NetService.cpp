@@ -93,6 +93,7 @@ static void DNSSD_API resolve_reply(DNSServiceRef client,
       Opaque16b port = { opaqueport };
       uint16_t PortAsNumber = ((uint16_t)port.b[0]) << 8 | port.b[1];
       self->setPort(PortAsNumber);
+      self->setHostName(hosttarget);
         
       if(self->getListener()) 
       {  
@@ -156,6 +157,11 @@ void NetService::setPort(int port)
 void NetService::setName(const std::string &name)
 {
   mName = name;
+}
+
+void NetService::setHostName(const std::string &name)
+{
+  mHostName = name;
 }
 
 void NetService::publish()
