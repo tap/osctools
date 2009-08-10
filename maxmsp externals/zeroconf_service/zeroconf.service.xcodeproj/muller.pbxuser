@@ -34,7 +34,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					873,
+					10,
 					20,
 					48,
 					43,
@@ -73,14 +73,14 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 271600007;
-			PBXWorkspaceStateSaveDate = 271600007;
+			PBXPerProjectTemplateStateSaveDate = 271611323;
+			PBXWorkspaceStateSaveDate = 271611323;
 		};
 		perUserProjectItems = {
 			4542E62910304C4200C13320 /* PBXTextBookmark */ = 4542E62910304C4200C13320 /* PBXTextBookmark */;
 			4542E62B10304C4200C13320 /* PBXTextBookmark */ = 4542E62B10304C4200C13320 /* PBXTextBookmark */;
-			4542E6AA103059E000C13320 /* PBXTextBookmark */ = 4542E6AA103059E000C13320 /* PBXTextBookmark */;
-			4542E6D610305EA800C13320 /* PBXTextBookmark */ = 4542E6D610305EA800C13320 /* PBXTextBookmark */;
+			45EB41CE103075BC00AB8A5C /* PBXTextBookmark */ = 45EB41CE103075BC00AB8A5C /* PBXTextBookmark */;
+			45EB41CF103075C300AB8A5C /* PBXTextBookmark */ = 45EB41CF103075C300AB8A5C /* PBXTextBookmark */;
 		};
 		sourceControlManager = 4542E5F8103049ED00C13320 /* Source Control */;
 		userBuildSettings = {
@@ -95,9 +95,9 @@
 	};
 	22CF11AD0EE9A8840054F513 /* zeroconf.service.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1051, 2016}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1051, 2002}}";
 			sepNavSelRange = "{1384, 0}";
-			sepNavVisRange = "{2711, 1447}";
+			sepNavVisRange = "{2689, 1469}";
 		};
 	};
 	2FBBEAD608F335360078DB84 /* max-external */ = {
@@ -229,22 +229,24 @@
 		modificationTime = 271602334.88739;
 		state = 1;
 	};
-	4542E6AA103059E000C13320 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "error: request for member 'c_str' in 'pNetService-> ZeroConf::NetService::getPort()', which is of non-class type 'const int'";
-		fRef = 22CF11AD0EE9A8840054F513 /* zeroconf.service.cpp */;
-		rLen = 1;
-		rLoc = 50;
-		rType = 1;
-	};
-	4542E6D610305EA800C13320 /* PBXTextBookmark */ = {
+	45EB41CE103075BC00AB8A5C /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 22CF11AD0EE9A8840054F513 /* zeroconf.service.cpp */;
 		name = "zeroconf.service.cpp: 51";
 		rLen = 0;
 		rLoc = 1384;
 		rType = 0;
-		vrLen = 1447;
-		vrLoc = 2711;
+		vrLen = 1469;
+		vrLoc = 2689;
+	};
+	45EB41CF103075C300AB8A5C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22CF11AD0EE9A8840054F513 /* zeroconf.service.cpp */;
+		name = "zeroconf.service.cpp: 51";
+		rLen = 0;
+		rLoc = 1384;
+		rType = 0;
+		vrLen = 1469;
+		vrLoc = 2689;
 	};
 }

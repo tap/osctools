@@ -34,7 +34,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					10,
+					873,
 					20,
 					48,
 					43,
@@ -56,7 +56,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					954,
+					833,
 					60,
 					20,
 					48,
@@ -73,14 +73,20 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 271604441;
-			PBXWorkspaceStateSaveDate = 271604441;
+			PBXPerProjectTemplateStateSaveDate = 271611144;
+			PBXWorkspaceStateSaveDate = 271611144;
 		};
 		perUserProjectItems = {
 			4542E6C510305E2600C13320 /* PBXTextBookmark */ = 4542E6C510305E2600C13320 /* PBXTextBookmark */;
-			4542E6C810305E2600C13320 /* PBXTextBookmark */ = 4542E6C810305E2600C13320 /* PBXTextBookmark */;
-			4542E6CD10305E4C00C13320 /* PBXTextBookmark */ = 4542E6CD10305E4C00C13320 /* PBXTextBookmark */;
-			4542E6D710305EA800C13320 /* PBXTextBookmark */ = 4542E6D710305EA800C13320 /* PBXTextBookmark */;
+			45EB41AD1030755300AB8A5C /* PBXTextBookmark */ = 45EB41AD1030755300AB8A5C /* PBXTextBookmark */;
+			45EB41AE1030755300AB8A5C /* PBXTextBookmark */ = 45EB41AE1030755300AB8A5C /* PBXTextBookmark */;
+			45EB41B01030755300AB8A5C /* PBXTextBookmark */ = 45EB41B01030755300AB8A5C /* PBXTextBookmark */;
+			45EB41B11030755300AB8A5C /* PBXTextBookmark */ = 45EB41B11030755300AB8A5C /* PBXTextBookmark */;
+			45EB41B21030755300AB8A5C /* PBXTextBookmark */ = 45EB41B21030755300AB8A5C /* PBXTextBookmark */;
+			45EB41BF1030759800AB8A5C /* PBXTextBookmark */ = 45EB41BF1030759800AB8A5C /* PBXTextBookmark */;
+			45EB41C01030759800AB8A5C /* PBXBookmark */ = 45EB41C01030759800AB8A5C /* PBXBookmark */;
+			45EB41C11030759800AB8A5C /* PBXTextBookmark */ = 45EB41C11030759800AB8A5C /* PBXTextBookmark */;
+			45EB41C4103075B700AB8A5C /* PBXTextBookmark */ = 45EB41C4103075B700AB8A5C /* PBXTextBookmark */;
 		};
 		sourceControlManager = 4542E5F8103049ED00C13320 /* Source Control */;
 		userBuildSettings = {
@@ -88,9 +94,9 @@
 	};
 	22CF10220EE984600054F513 /* maxmspsdk.xcconfig */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1172, 546}}";
-			sepNavSelRange = "{348, 0}";
-			sepNavVisRange = "{0, 1288}";
+			sepNavIntBoundsRect = "{{0, 0}, {1051, 546}}";
+			sepNavSelRange = "{568, 0}";
+			sepNavVisRange = "{0, 1308}";
 		};
 	};
 	22CF11AD0EE9A8840054F513 /* zeroconf.service.cpp */ = {
@@ -100,11 +106,6 @@
 		name = zeroconf.service.cpp;
 		path = "/Users/muller/projects/osctools/maxmsp externals/zeroconf_browser/zeroconf.service.cpp";
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1051, 2212}}";
-			sepNavSelRange = "{1384, 0}";
-			sepNavVisRange = "{483, 1375}";
-		};
 	};
 	2FBBEAD608F335360078DB84 /* max-external */ = {
 		activeExec = 0;
@@ -129,9 +130,16 @@
 	};
 	4542E64910304E8400C13320 /* NetService.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {659, 3472}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1051, 3806}}";
+			sepNavSelRange = "{1278, 33}";
+			sepNavVisRange = "{0, 1692}";
+		};
+	};
+	4542E64B10304E8400C13320 /* CriticalSection.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1051, 992}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 966}";
+			sepNavVisRange = "{0, 839}";
 		};
 	};
 	4542E64D10304E8400C13320 /* NetServiceThread.cpp */ = {
@@ -231,9 +239,9 @@
 	};
 	4542E6BB10305AFC00C13320 /* zeroconf.browser.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1068, 1890}}";
-			sepNavSelRange = "{3536, 0}";
-			sepNavVisRange = "{3017, 893}";
+			sepNavIntBoundsRect = "{{0, 0}, {1068, 3006}}";
+			sepNavSelRange = "{4922, 56}";
+			sepNavVisRange = "{4916, 281}";
 		};
 	};
 	4542E6C510305E2600C13320 /* PBXTextBookmark */ = {
@@ -246,32 +254,88 @@
 		vrLen = 826;
 		vrLoc = 1404;
 	};
-	4542E6C810305E2600C13320 /* PBXTextBookmark */ = {
+	45EB41AD1030755300AB8A5C /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 4542E6BB10305AFC00C13320 /* zeroconf.browser.cpp */;
-		name = "zeroconf.browser.cpp: 30";
-		rLen = 0;
-		rLoc = 1872;
+		name = "zeroconf.browser.cpp: 151";
+		rLen = 56;
+		rLoc = 4922;
 		rType = 0;
-		vrLen = 1163;
-		vrLoc = 113;
+		vrLen = 685;
+		vrLoc = 4512;
 	};
-	4542E6CD10305E4C00C13320 /* PBXTextBookmark */ = {
+	45EB41AE1030755300AB8A5C /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		comments = "error: 'atom_geysym' was not declared in this scope";
-		fRef = 4542E6BB10305AFC00C13320 /* zeroconf.browser.cpp */;
-		rLen = 1;
-		rLoc = 113;
-		rType = 1;
-	};
-	4542E6D710305EA800C13320 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 4542E6BB10305AFC00C13320 /* zeroconf.browser.cpp */;
-		name = "zeroconf.browser.cpp: 119";
+		fRef = 4542E64B10304E8400C13320 /* CriticalSection.cpp */;
+		name = "CriticalSection.cpp: 1";
 		rLen = 0;
-		rLoc = 3536;
+		rLoc = 0;
 		rType = 0;
-		vrLen = 893;
-		vrLoc = 3017;
+		vrLen = 705;
+		vrLoc = 0;
+	};
+	45EB41B01030755300AB8A5C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4542E6BB10305AFC00C13320 /* zeroconf.browser.cpp */;
+		name = "zeroconf.browser.cpp: 151";
+		rLen = 56;
+		rLoc = 4922;
+		rType = 0;
+		vrLen = 685;
+		vrLoc = 4512;
+	};
+	45EB41B11030755300AB8A5C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4542E64910304E8400C13320 /* NetService.cpp */;
+		name = "NetService.cpp: 28";
+		rLen = 33;
+		rLoc = 1278;
+		rType = 0;
+		vrLen = 1435;
+		vrLoc = 0;
+	};
+	45EB41B21030755300AB8A5C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4542E64B10304E8400C13320 /* CriticalSection.cpp */;
+		name = "CriticalSection.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 705;
+		vrLoc = 0;
+	};
+	45EB41BF1030759800AB8A5C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4542E64910304E8400C13320 /* NetService.cpp */;
+		name = "NetService.cpp: 28";
+		rLen = 33;
+		rLoc = 1278;
+		rType = 0;
+		vrLen = 1435;
+		vrLoc = 0;
+	};
+	45EB41C01030759800AB8A5C /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 22CF10220EE984600054F513 /* maxmspsdk.xcconfig */;
+	};
+	45EB41C11030759800AB8A5C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4542E64910304E8400C13320 /* NetService.cpp */;
+		name = "NetService.cpp: 28";
+		rLen = 33;
+		rLoc = 1278;
+		rType = 0;
+		vrLen = 1435;
+		vrLoc = 0;
+	};
+	45EB41C4103075B700AB8A5C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22CF10220EE984600054F513 /* maxmspsdk.xcconfig */;
+		name = "maxmspsdk.xcconfig: 14";
+		rLen = 0;
+		rLoc = 568;
+		rType = 0;
+		vrLen = 1308;
+		vrLoc = 0;
 	};
 }

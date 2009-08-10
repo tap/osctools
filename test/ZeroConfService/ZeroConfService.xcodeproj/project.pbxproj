@@ -10,6 +10,7 @@
 		4542E34E1030062200C13320 /* CriticalSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4542E3471030062200C13320 /* CriticalSection.cpp */; };
 		4542E3501030062200C13320 /* Thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4542E34B1030062200C13320 /* Thread.cpp */; };
 		4542E3511030062200C13320 /* NetService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4542E34C1030062200C13320 /* NetService.cpp */; };
+		45EB41F91030760100AB8A5C /* NetServiceThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45EB41F71030760100AB8A5C /* NetServiceThread.cpp */; };
 		8DD76F650486A84900D96B5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cpp */; settings = {ATTRIBUTES = (); }; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,8 @@
 		4542E34B1030062200C13320 /* Thread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Thread.cpp; path = ../../zeroconf/Thread.cpp; sourceTree = SOURCE_ROOT; };
 		4542E34C1030062200C13320 /* NetService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetService.cpp; path = ../../zeroconf/NetService.cpp; sourceTree = SOURCE_ROOT; };
 		4542E34D1030062200C13320 /* CriticalSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CriticalSection.h; path = ../../zeroconf/CriticalSection.h; sourceTree = SOURCE_ROOT; };
+		45EB41F71030760100AB8A5C /* NetServiceThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetServiceThread.cpp; path = ../../zeroconf/NetServiceThread.cpp; sourceTree = SOURCE_ROOT; };
+		45EB41F81030760100AB8A5C /* NetServiceThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetServiceThread.h; path = ../../zeroconf/NetServiceThread.h; sourceTree = SOURCE_ROOT; };
 		8DD76F6C0486A84900D96B5E /* ZeroConfService */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ZeroConfService; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -60,6 +63,8 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				45EB41F71030760100AB8A5C /* NetServiceThread.cpp */,
+				45EB41F81030760100AB8A5C /* NetServiceThread.h */,
 				4542E3461030062200C13320 /* NetService.h */,
 				4542E34C1030062200C13320 /* NetService.cpp */,
 				4542E34D1030062200C13320 /* CriticalSection.h */,
@@ -133,6 +138,7 @@
 				4542E34E1030062200C13320 /* CriticalSection.cpp in Sources */,
 				4542E3501030062200C13320 /* Thread.cpp in Sources */,
 				4542E3511030062200C13320 /* NetService.cpp in Sources */,
+				45EB41F91030760100AB8A5C /* NetServiceThread.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +158,7 @@
 					"_GLIBCXX_DEBUG=1",
 					"_GLIBCXX_DEBUG_PEDANTIC=1",
 				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../..\"";
 				INSTALL_PATH = /usr/local/bin;
 				PRODUCT_NAME = ZeroConfService;
 			};
@@ -163,6 +170,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../..\"";
 				INSTALL_PATH = /usr/local/bin;
 				PRODUCT_NAME = ZeroConfService;
 			};

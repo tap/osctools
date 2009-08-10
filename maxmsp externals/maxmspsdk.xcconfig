@@ -11,7 +11,7 @@ PRODUCT_VERSION = 1.0.1
 
 // Paths
 C74SUPPORT = $(SRCROOT)/../MaxSDK-5.0.6/c74support
-HEADER_SEARCH_PATHS = /Developer/Headers/FlatCarbon "$(C74SUPPORT)/max-includes" "$(C74SUPPORT)/msp-includes"
+HEADER_SEARCH_PATHS = /Developer/Headers/FlatCarbon "$(C74SUPPORT)/max-includes" "$(C74SUPPORT)/msp-includes" "$(SRCROOT)/../../"
 FRAMEWORK_SEARCH_PATHS = "$(C74SUPPORT)/max-includes" "$(C74SUPPORT)/msp-includes"
 DSTROOT = $(SRCROOT)/../externals
 // (This next path is relative to DSTROOT)

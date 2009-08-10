@@ -39,13 +39,34 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 271602375;
-			PBXWorkspaceStateSaveDate = 271602375;
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					793,
+					60,
+					20,
+					48.16259765625,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 271611339;
+			PBXWorkspaceStateSaveDate = 271611339;
 		};
 		perUserProjectItems = {
 			4542E36C10301DA200C13320 /* PBXTextBookmark */ = 4542E36C10301DA200C13320 /* PBXTextBookmark */;
 			4542E36D10301DA200C13320 /* PBXTextBookmark */ = 4542E36D10301DA200C13320 /* PBXTextBookmark */;
-			4542E36E10301DA200C13320 /* PBXTextBookmark */ = 4542E36E10301DA200C13320 /* PBXTextBookmark */;
 			4542E37510301DA200C13320 /* PBXTextBookmark */ = 4542E37510301DA200C13320 /* PBXTextBookmark */;
 			4542E37610301DA200C13320 /* PBXTextBookmark */ = 4542E37610301DA200C13320 /* PBXTextBookmark */;
 			4542E37810301DA200C13320 /* PBXTextBookmark */ = 4542E37810301DA200C13320 /* PBXTextBookmark */;
@@ -53,15 +74,12 @@
 			4542E38010301DA200C13320 /* PBXTextBookmark */ = 4542E38010301DA200C13320 /* PBXTextBookmark */;
 			4542E38110301DA200C13320 /* PBXTextBookmark */ = 4542E38110301DA200C13320 /* PBXTextBookmark */;
 			4542E38210301DA200C13320 /* PBXTextBookmark */ = 4542E38210301DA200C13320 /* PBXTextBookmark */;
-			4542E38A10301DA200C13320 /* PBXTextBookmark */ = 4542E38A10301DA200C13320 /* PBXTextBookmark */;
-			4542E3FF1030228A00C13320 /* PBXTextBookmark */ = 4542E3FF1030228A00C13320 /* PBXTextBookmark */;
-			4542E4061030228A00C13320 /* PBXTextBookmark */ = 4542E4061030228A00C13320 /* PBXTextBookmark */;
 			4542E4361030258E00C13320 /* PBXTextBookmark */ = 4542E4361030258E00C13320 /* PBXTextBookmark */;
 			4542E45C1030294000C13320 /* PBXTextBookmark */ = 4542E45C1030294000C13320 /* PBXTextBookmark */;
 			4542E462103029B500C13320 /* PBXTextBookmark */ = 4542E462103029B500C13320 /* PBXTextBookmark */;
 			4542E463103029B500C13320 /* PBXTextBookmark */ = 4542E463103029B500C13320 /* PBXTextBookmark */;
-			4542E47310302ACC00C13320 /* PBXTextBookmark */ = 4542E47310302ACC00C13320 /* PBXTextBookmark */;
-			4542E694103052D200C13320 /* PBXTextBookmark */ = 4542E694103052D200C13320 /* PBXTextBookmark */;
+			45EB41E5103075CD00AB8A5C /* PBXTextBookmark */ = 45EB41E5103075CD00AB8A5C /* PBXTextBookmark */;
+			45EB41FB1030760500AB8A5C /* PBXTextBookmark */ = 45EB41FB1030760500AB8A5C /* PBXTextBookmark */;
 		};
 		sourceControlManager = 4542E3441030061000C13320 /* Source Control */;
 		userBuildSettings = {
@@ -69,7 +87,7 @@
 	};
 	08FB7796FE84155DC02AAC07 /* main.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1011, 952}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 966}}";
 			sepNavSelRange = "{93, 1098}";
 			sepNavVisRange = "{375, 1001}";
 		};
@@ -175,23 +193,6 @@
 		vrLen = 836;
 		vrLoc = 750;
 	};
-	4542E36E10301DA200C13320 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 4542E36F10301DA200C13320 /* OscUdpZeroConfService.cpp */;
-		name = "OscUdpZeroConfService.cpp: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 2130;
-		vrLoc = 2618;
-	};
-	4542E36F10301DA200C13320 /* OscUdpZeroConfService.cpp */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.cpp.cpp;
-		name = OscUdpZeroConfService.cpp;
-		path = /Users/muller/projects/osctools/zeroconf/posix/OscUdpZeroConfService.cpp;
-		sourceTree = "<absolute>";
-	};
 	4542E37510301DA200C13320 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 4542E34D1030062200C13320 /* CriticalSection.h */;
@@ -261,57 +262,6 @@
 		rType = 0;
 		vrLen = 614;
 		vrLoc = 0;
-	};
-	4542E38A10301DA200C13320 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 4542E38B10301DA200C13320 /* OscUdpZeroConfService.cpp */;
-		name = "OscUdpZeroConfService.cpp: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 2130;
-		vrLoc = 2618;
-	};
-	4542E38B10301DA200C13320 /* OscUdpZeroConfService.cpp */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.cpp.cpp;
-		name = OscUdpZeroConfService.cpp;
-		path = /Users/muller/projects/osctools/zeroconf/posix/OscUdpZeroConfService.cpp;
-		sourceTree = "<absolute>";
-	};
-	4542E3FF1030228A00C13320 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 4542E4001030228A00C13320 /* OscUdpZeroConfResolver.cpp */;
-		name = "OscUdpZeroConfResolver.cpp: 53";
-		rLen = 1223;
-		rLoc = 1067;
-		rType = 0;
-		vrLen = 1558;
-		vrLoc = 978;
-	};
-	4542E4001030228A00C13320 /* OscUdpZeroConfResolver.cpp */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.cpp.cpp;
-		name = OscUdpZeroConfResolver.cpp;
-		path = /Users/muller/projects/osctools/zeroconf/posix/OscUdpZeroConfResolver.cpp;
-		sourceTree = "<absolute>";
-	};
-	4542E4061030228A00C13320 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 4542E4071030228A00C13320 /* OscUdpZeroConfResolver.cpp */;
-		name = "OscUdpZeroConfResolver.cpp: 53";
-		rLen = 1223;
-		rLoc = 1067;
-		rType = 0;
-		vrLen = 1558;
-		vrLoc = 978;
-	};
-	4542E4071030228A00C13320 /* OscUdpZeroConfResolver.cpp */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.cpp.cpp;
-		name = OscUdpZeroConfResolver.cpp;
-		path = /Users/muller/projects/osctools/zeroconf/posix/OscUdpZeroConfResolver.cpp;
-		sourceTree = "<absolute>";
 	};
 	4542E4361030258E00C13320 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -404,17 +354,17 @@
 		modificationTime = 271591954.030054;
 		state = 1;
 	};
-	4542E47310302ACC00C13320 /* PBXTextBookmark */ = {
+	45EB41E5103075CD00AB8A5C /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
-		name = "main.cpp: 51";
-		rLen = 0;
-		rLoc = 1235;
+		name = "main.cpp: 8";
+		rLen = 1098;
+		rLoc = 93;
 		rType = 0;
-		vrLen = 931;
-		vrLoc = 729;
+		vrLen = 1001;
+		vrLoc = 375;
 	};
-	4542E694103052D200C13320 /* PBXTextBookmark */ = {
+	45EB41FB1030760500AB8A5C /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
 		name = "main.cpp: 8";

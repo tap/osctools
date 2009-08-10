@@ -298,12 +298,6 @@
 								<string>089C1671FE841209C02AAC07</string>
 								<string>19C28FB4FE9D528D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
-								<string>4542E60410304A7500C13320</string>
-								<string>4542E60510304A7500C13320</string>
-								<string>4542E60610304A7500C13320</string>
-								<string>4542E60710304A7500C13320</string>
-								<string>4542E60810304A7500C13320</string>
-								<string>4542E60910304A7500C13320</string>
 								<string>1C37FAAC04509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
@@ -359,11 +353,11 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>4542E6D610305EA800C13320</string>
+										<string>45EB41CF103075C300AB8A5C</string>
 										<key>history</key>
 										<array>
 											<string>4542E62910304C4200C13320</string>
-											<string>4542E6AA103059E000C13320</string>
+											<string>45EB41CE103075BC00AB8A5C</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -406,7 +400,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1112, 173}}</string>
+										<string>{{10, 27}, {0, -27}}</string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -492,11 +486,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>4542E60E10304A7500C13320</string>
+				<string>45EB41D0103075C300AB8A5C</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>4542E60F10304A7500C13320</string>
+				<string>45EB41D1103075C300AB8A5C</string>
 				<string>4542E60A10304A7500C13320</string>
-				<string>4542E61010304A7500C13320</string>
+				<string>45EB41D2103075C300AB8A5C</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -665,7 +659,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>271605416.617899</real>
+	<real>271611331.04816997</real>
 	<key>ToolbarDisplayMode</key>
 	<integer>1</integer>
 	<key>ToolbarIsVisible</key>
@@ -680,8 +674,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>4542E67D1030507400C13320</string>
-		<string>4542E67E1030507400C13320</string>
 		<string>/Users/muller/projects/osctools/maxmsp externals/zeroconf_service/zeroconf.service.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
