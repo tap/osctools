@@ -1,7 +1,6 @@
 #include <iostream>
 
-#include "NetService.h"
-#include "Thread.h"
+#include "zeroconf/NetService.h"
 
 using namespace ZeroConf;
 
@@ -54,14 +53,10 @@ int main (int argc, char * const argv[])
   ZeroConf::NetService serviceA("local", "_osc._udp", "serviceA", 12345);
   serviceA.setListener(&listener);
   serviceA.publish();
-
-  ZeroConf::Thread::sleep(1000);
   
   ZeroConf::NetService serviceAbis(serviceA.getDomain(), serviceA.getType(), serviceA.getName());
   serviceAbis.setListener(&listener);
   serviceAbis.resolveWithTimeout(10);
-
-  ZeroConf::Thread::sleep(1000);
   
   return 0;
 }

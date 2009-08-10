@@ -1,6 +1,6 @@
 #include <iostream>
-#include "NetServiceBrowser.h"
-#include "NetService.h"
+#include "zeroconf/NetServiceBrowser.h"
+#include "zeroconf/NetService.h"
 
 using namespace ZeroConf;
 
