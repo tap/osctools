@@ -25,8 +25,9 @@
 	WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include <pthread.h>
 #include "CriticalSection.h"
+
+using namespace ZeroConf;
 
 CriticalSection::CriticalSection()
 {

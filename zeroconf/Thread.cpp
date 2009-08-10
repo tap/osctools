@@ -28,6 +28,8 @@
 #include "Thread.h"
 #include <cassert>
 
+using namespace ZeroConf;
+
 #ifdef WIN32
 
 static void *threadEntryPoint(void *pUser)
@@ -59,12 +61,10 @@ static void closeThread(void *pHandle)
 
 #else
 
-#include "pthread.h"
-
 static void *threadEntryPoint(void *pUser)
 {
 	//const ScopedAutoReleasePool pool;
-	Thread::entryPoint((Thread*)pUser);
+	Thread::threadEntryPoint((Thread*)pUser);
 	return NULL;
 }
 
@@ -110,10 +110,10 @@ Thread::Thread()
 
 Thread::~Thread()
 {
-	stop(100);
+	stopThread(100);
 }
 
-void Thread::start()
+void Thread::startThread()
 {
 	const ScopedLock lock(mCriticalSection);
 	
@@ -124,19 +124,19 @@ void Thread::start()
 	}
 }
 
-void Thread::stop(const int timeOut)
+void Thread::stopThread(const int timeOut)
 {
 	const ScopedLock lock(mCriticalSection);
 	
-	if(isRunning())
+	if(isThreadRunning())
 	{
-		setShouldExit();
+		setThreadShouldExit();
 		// notify
 		
 		if(timeOut != 0)
 			waitForThreadToExit(timeOut);
 		
-		if(isRunning())
+		if(isThreadRunning())
 		{
 			killThread(mpThreadHandle);
 			mpThreadHandle = NULL;
@@ -145,17 +145,17 @@ void Thread::stop(const int timeOut)
 }
 
 
-bool Thread::isRunning() const
+bool Thread::isThreadRunning() const
 {
 	return mpThreadHandle != NULL;
 }
 
-bool Thread::shouldExit() const
+bool Thread::threadShouldExit() const
 {
 	return mShouldExit;
 }
 
-void Thread::setShouldExit()
+void Thread::setThreadShouldExit()
 {
 	mShouldExit = true;
 }
@@ -164,8 +164,8 @@ bool Thread::waitForThreadToExit(const int timeOut)
 {
 	int count = timeOut;
 	
-	while (isRunning()) {
-		if(timeOut >0 && --count < 0)
+	while (isThreadRunning()) {
+		if(timeOut>0 && --count < 0)
 			return false;
 			
 		sleep(1);
@@ -180,7 +180,7 @@ void Thread::sleep(int ms)
 }
 
 
-void Thread::entryPoint(Thread *pThread)
+void Thread::threadEntryPoint(Thread *pThread)
 {
 	pThread->run();
 	

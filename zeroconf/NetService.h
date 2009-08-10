@@ -34,6 +34,7 @@
 namespace ZeroConf 
 {
 	class NetService;
+  class NetServiceThread;
 	
 	class NetServiceListener
 	{
@@ -111,9 +112,9 @@ namespace ZeroConf
 		NetServiceListener *getListener() const;
 		
 		void publish();
-		void publishWitOptions(Options options);
+		void publishWithOptions(Options options);
 		
-		void resolveWithTimeout();
+		void resolveWithTimeout(double timeOutInSeconds);
 
 		/** Halts a currently running attempt to publish or resolve a service. 
 		 
@@ -125,8 +126,13 @@ namespace ZeroConf
 		void stopMonitoring();
 		
 		const std::string& getDomain() const { return mDomain; }
-		const std::string& getType() const { return mType; }
+		
+    const std::string& getType() const { return mType; }
+
+    void setName(const std::string &name);
 		const std::string& getName() const { return mName; }
+    
+    void setPort(int port);
 		const int getPort() const {return mPort; }
 		
 	private:
@@ -137,6 +143,8 @@ namespace ZeroConf
 		std::string mTXTRecordData;
 		NetServiceListener *mpListener;
 		CriticalSection mCriticalSection;
+    
+    NetServiceThread *mpNetServiceThread;
 	};
 }
 

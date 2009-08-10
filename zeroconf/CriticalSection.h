@@ -29,6 +29,13 @@
 #ifndef __CriticalSection_H__
 #define __CriticalSection_H__
 
+#ifdef WIN32
+#else
+#include <pthread.h>
+#endif
+
+namespace ZeroConf {
+  
 class CriticalSection
 {
 public:
@@ -40,7 +47,7 @@ public:
 	void exit() const;
 		
 private:
-#ifdef _WIN32
+#ifdef WIN32
 	uint8 internal [44];
 #else
 	mutable pthread_mutex_t internal;
@@ -62,6 +69,8 @@ public:
 private:
     const CriticalSection& mLock;
 };
+
+}
 
 
 #endif

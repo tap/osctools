@@ -31,6 +31,8 @@
 
 #include "CriticalSection.h"
 
+namespace ZeroConf {
+
 class Thread
 {
 public:
@@ -39,22 +41,23 @@ public:
 	
 	virtual void run() = 0;
 	
-	void start();
-	void stop(const int timeOut=-1);
+	void startThread();
+	void stopThread(const int timeOut=-1);
 	
-	bool isRunning() const;
-	bool shouldExit() const;
-	void setShouldExit();
+	bool isThreadRunning() const;
+	bool threadShouldExit() const;
+	void setThreadShouldExit();
 	bool waitForThreadToExit(const int timeOut=-1);
 				
 	static void sleep(int ms);
-	static void entryPoint(Thread *pThread);
+	static void threadEntryPoint(Thread *pThread);
 	
 private:
 	void *mpThreadHandle;
 	CriticalSection mCriticalSection;
 	bool mShouldExit;
-	
 };
+
+}
 
 #endif
