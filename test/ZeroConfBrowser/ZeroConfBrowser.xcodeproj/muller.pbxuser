@@ -186,9 +186,9 @@
 	};
 	4542E48110302B0800C13320 /* NetServiceBrowser.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1122, 1946}}";
+			sepNavIntBoundsRect = "{{0, 0}, {672, 2002}}";
 			sepNavSelRange = "{899, 0}";
-			sepNavVisRange = "{2369, 1252}";
+			sepNavVisRange = "{2369, 730}";
 		};
 	};
 	4542E48210302B0800C13320 /* NetServiceBrowser.h */ = {
