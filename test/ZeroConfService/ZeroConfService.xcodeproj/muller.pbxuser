@@ -10,7 +10,7 @@
 		breakpoints = (
 			4542E4531030290500C13320 /* main.cpp:21 */,
 			4542E4561030293800C13320 /* main.cpp:36 */,
-			4542E46A103029BB00C13320 /* main.cpp:66 */,
+			4542E46A103029BB00C13320 /* main.cpp:64 */,
 		);
 		codeSenseManager = 4542E3451030061000C13320 /* Code sense */;
 		executables = (
@@ -22,7 +22,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					833,
+					10,
 					20,
 					48,
 					43,
@@ -61,8 +61,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 271611339;
-			PBXWorkspaceStateSaveDate = 271611339;
+			PBXPerProjectTemplateStateSaveDate = 271615683;
+			PBXWorkspaceStateSaveDate = 271615683;
 		};
 		perUserProjectItems = {
 			4542E36C10301DA200C13320 /* PBXTextBookmark */ = 4542E36C10301DA200C13320 /* PBXTextBookmark */;
@@ -78,7 +78,7 @@
 			4542E45C1030294000C13320 /* PBXTextBookmark */ = 4542E45C1030294000C13320 /* PBXTextBookmark */;
 			4542E462103029B500C13320 /* PBXTextBookmark */ = 4542E462103029B500C13320 /* PBXTextBookmark */;
 			4542E463103029B500C13320 /* PBXTextBookmark */ = 4542E463103029B500C13320 /* PBXTextBookmark */;
-			45EB41E5103075CD00AB8A5C /* PBXTextBookmark */ = 45EB41E5103075CD00AB8A5C /* PBXTextBookmark */;
+			45CC3314103086C80057043E /* PBXTextBookmark */ = 45CC3314103086C80057043E /* PBXTextBookmark */;
 			45EB41FB1030760500AB8A5C /* PBXTextBookmark */ = 45EB41FB1030760500AB8A5C /* PBXTextBookmark */;
 		};
 		sourceControlManager = 4542E3441030061000C13320 /* Source Control */;
@@ -87,9 +87,9 @@
 	};
 	08FB7796FE84155DC02AAC07 /* main.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1011, 966}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 910}}";
 			sepNavSelRange = "{93, 1098}";
-			sepNavVisRange = "{375, 1001}";
+			sepNavVisRange = "{364, 1001}";
 		};
 	};
 	4542E3401030060100C13320 /* ZeroConfService */ = {
@@ -178,7 +178,7 @@
 		fRef = 4542E34D1030062200C13320 /* CriticalSection.h */;
 		name = "CriticalSection.h: 50";
 		rLen = 0;
-		rLoc = 1572;
+		rLoc = 1993;
 		rType = 0;
 		vrLen = 467;
 		vrLoc = 1409;
@@ -198,7 +198,7 @@
 		fRef = 4542E34D1030062200C13320 /* CriticalSection.h */;
 		name = "CriticalSection.h: 32";
 		rLen = 0;
-		rLoc = 1404;
+		rLoc = 1825;
 		rType = 0;
 		vrLen = 1014;
 		vrLoc = 610;
@@ -218,7 +218,7 @@
 		fRef = 4542E34A1030062200C13320 /* Thread.h */;
 		name = "Thread.h: 62";
 		rLen = 0;
-		rLoc = 1836;
+		rLoc = 1818;
 		rType = 0;
 		vrLen = 598;
 		vrLoc = 1209;
@@ -228,7 +228,7 @@
 		fRef = 4542E34B1030062200C13320 /* Thread.cpp */;
 		name = "Thread.cpp: 64";
 		rLen = 0;
-		rLoc = 1669;
+		rLoc = 3506;
 		rType = 0;
 		vrLen = 490;
 		vrLoc = 3027;
@@ -268,7 +268,7 @@
 		fRef = 4542E3461030062200C13320 /* NetService.h */;
 		name = "NetService.h: 132";
 		rLen = 43;
-		rLoc = 6347;
+		rLoc = 10528;
 		rType = 0;
 		vrLen = 983;
 		vrLoc = 5731;
@@ -312,7 +312,7 @@
 		fRef = 4542E34C1030062200C13320 /* NetService.cpp */;
 		name = "NetService.cpp: 204";
 		rLen = 0;
-		rLoc = 3431;
+		rLoc = 105;
 		rType = 0;
 		vrLen = 579;
 		vrLoc = 4485;
@@ -322,7 +322,7 @@
 		fRef = 4542E34A1030062200C13320 /* Thread.h */;
 		name = "Thread.h: 33";
 		rLen = 0;
-		rLoc = 1351;
+		rLoc = 1358;
 		rType = 0;
 		vrLen = 566;
 		vrLoc = 1277;
@@ -332,12 +332,12 @@
 		fRef = 4542E34B1030062200C13320 /* Thread.cpp */;
 		name = "Thread.cpp: 118";
 		rLen = 0;
-		rLoc = 2573;
+		rLoc = 4208;
 		rType = 0;
 		vrLen = 618;
 		vrLoc = 1795;
 	};
-	4542E46A103029BB00C13320 /* main.cpp:66 */ = {
+	4542E46A103029BB00C13320 /* main.cpp:64 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -349,20 +349,20 @@
 		functionName = "main (int argc, char * const argv[])";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 66;
+		lineNumber = 64;
 		location = ZeroConfService;
 		modificationTime = 271591954.030054;
 		state = 1;
 	};
-	45EB41E5103075CD00AB8A5C /* PBXTextBookmark */ = {
+	45CC3314103086C80057043E /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 08FB7796FE84155DC02AAC07 /* main.cpp */;
-		name = "main.cpp: 8";
+		name = "main.cpp: 7";
 		rLen = 1098;
 		rLoc = 93;
 		rType = 0;
 		vrLen = 1001;
-		vrLoc = 375;
+		vrLoc = 364;
 	};
 	45EB41FB1030760500AB8A5C /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;

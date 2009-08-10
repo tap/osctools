@@ -95,8 +95,8 @@ namespace ZeroConf
 		/** Halts a currently running search or resolution. */
 		void stop();
 		
-    void addService(const char *domain, const char *type, const char *name);
-    void removeService(const char *domain, const char *type, const char *name);
+    void addService(const char *domain, const char *type, const char *name, bool moreComing);
+    void removeService(const char *domain, const char *type, const char *name, bool moreComming);
     
 	private:
 		NetServiceBrowserListener *mpListener;

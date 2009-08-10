@@ -1,9 +1,9 @@
 {
 	"patcher" : 	{
 		"fileversion" : 1,
-		"rect" : [ 45.0, 70.0, 640.0, 506.0 ],
+		"rect" : [ 520.0, 360.0, 640.0, 506.0 ],
 		"bglocked" : 0,
-		"defrect" : [ 45.0, 70.0, 640.0, 506.0 ],
+		"defrect" : [ 520.0, 360.0, 640.0, 506.0 ],
 		"openrect" : [ 0.0, 0.0, 0.0, 0.0 ],
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -18,13 +18,39 @@
 		"boxes" : [ 			{
 				"box" : 				{
 					"maxclass" : "newobj",
-					"text" : "zeroconf.service local _osc._udp \"Open Sound Control UDP Service\" 12345",
-					"patching_rect" : [ 105.0, 125.0, 65.0, 19.0 ],
+					"text" : "zeroconf.service \"Un autre service\" 6666 _osc._udp",
+					"id" : "obj-6",
+					"fontname" : "Verdana",
+					"numinlets" : 1,
+					"fontsize" : 10.0,
+					"numoutlets" : 0,
+					"patching_rect" : [ 24.0, 154.0, 271.0, 19.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"maxclass" : "comment",
+					"text" : "ZeroConf.service",
+					"id" : "obj-9",
+					"fontname" : "Arial",
+					"numinlets" : 1,
+					"fontsize" : 24.0,
+					"numoutlets" : 0,
+					"patching_rect" : [ 10.0, 11.0, 196.0, 34.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"maxclass" : "newobj",
+					"text" : "zeroconf.service \"Open Sound Control UDP Service\" 12345 _osc._udp",
 					"id" : "obj-1",
 					"fontname" : "Verdana",
 					"numinlets" : 1,
+					"fontsize" : 10.0,
 					"numoutlets" : 0,
-					"fontsize" : 10.0
+					"patching_rect" : [ 23.0, 104.0, 362.0, 19.0 ]
 				}
 
 			}

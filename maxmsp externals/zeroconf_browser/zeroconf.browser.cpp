@@ -33,64 +33,82 @@
 
 using namespace ZeroConf;
 
-class BrowserListener;
+class Browser;
 
 struct zeroconf_browser 
 {
-	t_object					ob;			// the object itself (must be first)
-  NetServiceBrowser *mpNetServiceBrowser;
-  BrowserListener *mpBrowserListener;
+	t_object ob;			// the object itself (must be first)
+	void *out;
+	Browser *mpBrowser;
 };
 
-class BrowserListener : public ZeroConf::NetServiceBrowserListener
+class Browser : public NetServiceBrowser, public NetServiceBrowserListener
 {
-  zeroconf_browser *mpZeroconf_browser;
+  zeroconf_browser *mpExternal;
+	
 public:
-  BrowserListener(zeroconf_browser *x)
-  : mpZeroconf_browser(x)
+  Browser(zeroconf_browser *x)
+  : mpExternal(x)
   {
+	  setListener(this);
   }
 
-  virtual void didFindDomain(NetServiceBrowser *pNetServiceBrowser, const std::string &domainName, bool moreDomainsComing) 
-  { 
-    object_post((t_object*)mpZeroconf_browser, ""); 
-  }
-  virtual void didRemoveDomain(NetServiceBrowser *pNetServiceBrowser, const std::string &domainName, bool moreDomainsComing) { object_post((t_object*)mpZeroconf_browser, ""); }
+private:
+  virtual void didFindDomain(NetServiceBrowser *pNetServiceBrowser, const std::string &domainName, bool moreDomainsComing) { }
+  virtual void didRemoveDomain(NetServiceBrowser *pNetServiceBrowser, const std::string &domainName, bool moreDomainsComing) { }
   
   virtual void didFindService(NetServiceBrowser* pNetServiceBrowser, NetService *pNetService, bool moreServicesComing) 
   { 
-    object_post((t_object*)mpZeroconf_browser, "found service %s %s", pNetService->getName().c_str(), pNetService->getType().c_str()); 
+	  t_atom at[1];
+	  atom_setsym(at, gensym(const_cast<char*>(pNetService->getName().c_str())));	  
+	  outlet_anything(mpExternal->out, gensym("append"), 1, at);
   }
+	
   virtual void didRemoveService(NetServiceBrowser *pNetServiceBrowser, NetService *pNetService, bool moreServicesComing) 
   { 
-    object_post((t_object*)mpZeroconf_browser, "lost service %s %s", pNetService->getName().c_str(), pNetService->getType().c_str()); 
+	  t_atom at[1];
+	  atom_setsym(at, gensym(const_cast<char*>(pNetService->getName().c_str())));	  
+	  outlet_anything(mpExternal->out, gensym("delete"), 1, at);
   }
   
-  virtual void willSearch(NetServiceBrowser *pNetServiceBrowser) { object_post((t_object*)mpZeroconf_browser, ""); }
-  virtual void didNotSearch(NetServiceBrowser *pNetServiceBrowser) { object_post((t_object*)mpZeroconf_browser, ""); }
-  
-  virtual void didStopSearch(NetServiceBrowser *pNetServiceBrowser) { object_post((t_object*)mpZeroconf_browser, ""); }
-  
-    //object_post((t_object *)mpZeroconf_browser, "willPublish" );
+  virtual void willSearch(NetServiceBrowser *pNetServiceBrowser) { }
+  virtual void didNotSearch(NetServiceBrowser *pNetServiceBrowser) { }  
+  virtual void didStopSearch(NetServiceBrowser *pNetServiceBrowser) { }
 };
 
 //------------------------------------------------------------------------------
-void *zeroconf_browser_new(t_symbol *s, long argc, t_atom *argv);
-void zeroconf_browser_free(zeroconf_browser *x);
-void zeroconf_browser_assist(zeroconf_browser *x, void *b, long m, long a, char *s);
-
 t_class *zeroconf_browser_class;
 
-int main(void)
-{		
-	t_class *c = class_new("zeroconf.browser", (method)zeroconf_browser_new, (method)zeroconf_browser_free, (long)sizeof(zeroconf_browser), 0L, A_GIMME, 0);
+void zeroconf_browser_browse(zeroconf_browser *x, t_symbol *s, long argc, t_atom *argv)
+{
+	char *type = NULL;
+	char *domain = "local.";
 	
-  class_addmethod(c, (method)zeroconf_browser_assist,			"assist",		A_CANT, 0);  
-	
-	class_register(CLASS_BOX, c); /* CLASS_NOBOX */
-	zeroconf_browser_class = c;
-  
-	return 0;
+    switch(argc)
+    {
+		case 2:
+			if(argv[1].a_type == A_SYM)
+			{
+				domain = atom_getsym(argv+1)->s_name;
+			}
+		case 1:
+			if(argv[0].a_type == A_SYM)
+			{
+				type = atom_getsym(argv+0)->s_name;
+			}
+		default:
+			break;
+    }
+    
+    if(type != NULL)
+    {
+		if(x->mpBrowser)
+			delete x->mpBrowser;
+		x->mpBrowser = NULL;
+		
+		x->mpBrowser = new Browser(x);
+		x->mpBrowser->searchForServicesOfType(type, domain);
+	}
 }
 
 void zeroconf_browser_assist(zeroconf_browser *x, void *b, long m, long a, char *s)
@@ -107,15 +125,9 @@ void zeroconf_browser_assist(zeroconf_browser *x, void *b, long m, long a, char 
 
 void zeroconf_browser_free(zeroconf_browser *x)
 {
-  if(x->mpNetServiceBrowser)
+  if(x->mpBrowser)
   {
-    delete x->mpNetServiceBrowser;
-    x->mpNetServiceBrowser = NULL;
-  }
-  if(x->mpBrowserListener)
-  {
-    delete x->mpBrowserListener;
-    x->mpBrowserListener = NULL;
+    delete x->mpBrowser;
   }
 }
 
@@ -125,10 +137,10 @@ void *zeroconf_browser_new(t_symbol *s, long argc, t_atom *argv)
   
 	if (x = (zeroconf_browser *)object_alloc(zeroconf_browser_class)) 
 	{
-    x->mpNetServiceBrowser = NULL;
-    x->mpBrowserListener = NULL;
-    char *type = NULL;
-    char *domain = "local";
+		x->out = outlet_new(x, NULL);
+        x->mpBrowser = NULL;
+        char *type = NULL;
+        char *domain = "local";
 
     switch(argc)
     {
@@ -148,11 +160,22 @@ void *zeroconf_browser_new(t_symbol *s, long argc, t_atom *argv)
     
     if(type != NULL)
     {
-      x->mpNetServiceBrowser = new NetServiceBrowser();
-      x->mpBrowserListener = new BrowserListener(x);
-      x->mpNetServiceBrowser->setListener(x->mpBrowserListener);
-      x->mpNetServiceBrowser->searchForServicesOfType(type, domain);        
+      x->mpBrowser = new Browser(x);
+      x->mpBrowser->searchForServicesOfType(type, domain);        
     }
 	}
 	return (x);
+}
+
+int main(void)
+{		
+	t_class *c = class_new("zeroconf.browser", (method)zeroconf_browser_new, (method)zeroconf_browser_free, (long)sizeof(zeroconf_browser), 0L, A_GIMME, 0);
+	
+	class_addmethod(c, (method)zeroconf_browser_browse,			"browse",		A_GIMME, 0);  
+	class_addmethod(c, (method)zeroconf_browser_assist,			"assist",		A_CANT, 0);  
+	
+	class_register(CLASS_BOX, c); /* CLASS_NOBOX */
+	zeroconf_browser_class = c;
+	
+	return 0;
 }

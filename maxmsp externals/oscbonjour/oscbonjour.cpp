@@ -99,7 +99,7 @@ public:
   {
     if(service) delete service;
     service = 0;
-    service = new NetService("local", "_osc._udp", name, port);
+    service = new NetService("local.", "_osc._udp", name, port);
     service->setListener(this);
   }
 
@@ -189,7 +189,7 @@ static void oscbonjour_browse(oscbonjour_t *self, Symbol *s, short ac, Atom *at)
   outlet_anything(self->out2,gensym("clear"),0,NULL);
 
   const char *type      =   "_osc._udp";
-  const char *domain    =   "local";
+  const char *domain    =   "local.";
 
   self->oscbonjour->Browse(type,domain);
 }
@@ -201,7 +201,7 @@ static void oscbonjour_resolve(oscbonjour_t *self, Symbol *s, short ac, Atom *at
 
   const char *name      =   at[0].a_w.w_sym->s_name;
   const char *type      =   "_osc._udp";
-  const char *domain    =   "local";
+  const char *domain    =   "local.";
 
   self->oscbonjour->Resolve(name,type,domain); 
 }

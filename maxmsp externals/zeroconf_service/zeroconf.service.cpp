@@ -28,7 +28,6 @@ public:
   
   virtual void willPublish(NetService *pNetService)
   {
-    object_post((t_object *)mpZeroconf_service, "willPublish" );
   }
   virtual void didNotPublish(NetService *pNetService)
   {
@@ -40,23 +39,18 @@ public:
   }
   virtual void willResolve(NetService *pNetService)
   {
-    object_post((t_object *)mpZeroconf_service, "willResolve" );
   }
   virtual void didNotResolve(NetService *NetService)
   {
-    object_post((t_object *)mpZeroconf_service, "didNotResolve" );
   }
   virtual void didResolveAddress(NetService *pNetService)
   {
-    object_post((t_object *)mpZeroconf_service, "didResolveAddress %s %d", pNetService->getName().c_str(), pNetService->getPort());
   }
   virtual void didUpdateTXTRecordData(NetService *pNetService)
   {
-    object_post((t_object *)mpZeroconf_service, "didUpdateTXTRecordData" );
   }   
   virtual void didStop(NetService *pNetService)
   {
-    object_post((t_object *)mpZeroconf_service, "didStop" );
   }
 };
 
@@ -113,26 +107,16 @@ void *zeroconf_service_new(t_symbol *s, long argc, t_atom *argv)
 	{
     x->mpNetService = NULL;
     x->mpServiceListener = NULL;
-    if(argc == 4 && argv[0].a_type == A_SYM && argv[1].a_type == A_SYM && argv[2].a_type == A_SYM && argv[3].a_type == A_LONG)
+    if(argc >= 3 && argv[0].a_type == A_SYM && argv[1].a_type == A_LONG && argv[2].a_type == A_SYM)
     {
-      const char *domain = atom_getsym(argv+0)->s_name;
-      const char *type = atom_getsym(argv+1)->s_name;
-      const char *name = atom_getsym(argv+2)->s_name;
-      const long port = atom_getlong(argv+3);
+		const char *name = atom_getsym(argv+0)->s_name;
+		const long port = atom_getlong(argv+1);
+		const char *type = atom_getsym(argv+2)->s_name;
+		const char *domain = "local."; //atom_getsym(argv+0)->s_name;
       x->mpNetService = new NetService(domain, type, name, port);
       x->mpServiceListener = new ServiceListener(x);
       x->mpNetService->setListener(x->mpServiceListener);
       x->mpNetService->publish();        
-    }
-    else if(argc == 3 && argv[0].a_type == A_SYM && argv[1].a_type == A_SYM && argv[2].a_type == A_SYM)
-    {
-      const char *domain = atom_getsym(argv+0)->s_name;
-      const char *type = atom_getsym(argv+1)->s_name;
-      const char *name = atom_getsym(argv+2)->s_name;
-      x->mpNetService = new NetService(domain, type, name);
-      x->mpServiceListener = new ServiceListener(x);
-      x->mpNetService->setListener(x->mpServiceListener);
-      x->mpNetService->resolveWithTimeout(10.0);        
     }
     else
     {

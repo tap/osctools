@@ -43,16 +43,17 @@ static void browse_reply(DNSServiceRef client,
                          void *context)
 {
   NetServiceBrowser *self = (NetServiceBrowser *)context;
+	const bool moreComing = bool(flags & kDNSServiceFlagsMoreComing);
   
   if(!self->getListener()) return;
   
   if(flags & kDNSServiceFlagsAdd)
   {
-    self->addService(replyDomain,replyType,replyName);
+    self->addService(replyDomain,replyType,replyName, moreComing);
   }
   else
   {
-    self->removeService(replyDomain,replyType,replyName);
+    self->removeService(replyDomain,replyType,replyName, moreComing);
   }
 }
 
@@ -132,7 +133,7 @@ void NetServiceBrowser::stop()
   }
 }
 
-void NetServiceBrowser::addService(const char *domain, const char *type, const char *name)
+void NetServiceBrowser::addService(const char *domain, const char *type, const char *name, bool moreComing)
 {
   NetService *pNetService = new NetService(domain, type, name);
   {
@@ -140,10 +141,10 @@ void NetServiceBrowser::addService(const char *domain, const char *type, const c
     mServices.push_back(pNetService);     
   }
   if(mpListener)
-    mpListener->didFindService(this, pNetService, true);
+    mpListener->didFindService(this, pNetService, moreComing);
 }
 
-void NetServiceBrowser::removeService(const char *domain, const char *type, const char *name)
+void NetServiceBrowser::removeService(const char *domain, const char *type, const char *name, bool moreComing)
 {
   ScopedLock lock(mCriticalSection);
   for(std::vector<NetService*>::iterator it = mServices.begin(); it != mServices.end();)
@@ -153,7 +154,7 @@ void NetServiceBrowser::removeService(const char *domain, const char *type, cons
           NetService *pNetService = *it;
           it = mServices.erase(it);
           if(mpListener)
-            mpListener->didRemoveService(this, pNetService, true);
+            mpListener->didRemoveService(this, pNetService, moreComing);
        }
        else
        {

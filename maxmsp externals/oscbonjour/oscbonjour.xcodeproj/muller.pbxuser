@@ -6,6 +6,9 @@
 		addToTargets = (
 			8D01CCC60486CAD60068D4B7 /* oscbonjour */,
 		);
+		breakpoints = (
+			45CC342E1030D50F0057043E /* NetServiceBrowser.cpp:45 */,
+		);
 		codeSenseManager = 45A57D6B0B04F81200FF8034 /* Code sense */;
 		perUserDictionary = {
 			PBXConfiguration.PBXFileTableDataSource3.PBXErrorsWarningsDataSource = {
@@ -66,8 +69,12 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 271615710;
-			PBXWorkspaceStateSaveDate = 271615710;
+			PBXPerProjectTemplateStateSaveDate = 271629791;
+			PBXWorkspaceStateSaveDate = 271629791;
+		};
+		perUserProjectItems = {
+			45CC344C1030D62F0057043E /* PBXTextBookmark */ = 45CC344C1030D62F0057043E /* PBXTextBookmark */;
+			45CC344D1030D62F0057043E /* PBXTextBookmark */ = 45CC344D1030D62F0057043E /* PBXTextBookmark */;
 		};
 		sourceControlManager = 45A57D6A0B04F81200FF8034 /* Source Control */;
 		userBuildSettings = {
@@ -92,6 +99,50 @@
 			sepNavVisRect = "{{0, 0}, {1186, 555}}";
 		};
 	};
+	45CC342E1030D50F0057043E /* NetServiceBrowser.cpp:45 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 45EB42921030808500AB8A5C /* NetServiceBrowser.cpp */;
+		functionName = "browse_reply(DNSServiceRef client, const DNSServiceFlags flags, uint32_t ifIndex, DNSServiceErrorType errorCode, const char *replyName, const char *replyType, const char *replyDomain, void *context)";
+		hitCount = 6;
+		ignoreCount = 0;
+		lineNumber = 45;
+		location = zeroconf.browser;
+		modificationTime = 271635871.695774;
+		state = 1;
+	};
+	45CC344C1030D62F0057043E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 56F0EDEB0B04DDAD00FAAA58 /* oscbonjour.cpp */;
+		name = "oscbonjour.cpp: 269";
+		rLen = 7;
+		rLoc = 9314;
+		rType = 0;
+		vrLen = 1406;
+		vrLoc = 6164;
+	};
+	45CC344D1030D62F0057043E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 56F0EDEB0B04DDAD00FAAA58 /* oscbonjour.cpp */;
+		name = "oscbonjour.cpp: 102";
+		rLen = 0;
+		rLoc = 3219;
+		rType = 0;
+		vrLen = 1296;
+		vrLoc = 8260;
+	};
+	45EB42961030808500AB8A5C /* Thread.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1084, 2842}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{3432, 526}";
+		};
+	};
 	45EB42A3103080A600AB8A5C /* maxmspsdk.xcconfig */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1090, 546}}";
@@ -101,8 +152,9 @@
 	};
 	56F0EDEB0B04DDAD00FAAA58 /* oscbonjour.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1186, 3892}}";
-			sepNavSelRange = "{0, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1084, 3878}}";
+			sepNavSelRange = "{3219, 0}";
+			sepNavVisRange = "{8260, 1296}";
 			sepNavVisRect = "{{0, 0}, {1186, 555}}";
 		};
 	};
