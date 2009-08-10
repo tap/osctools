@@ -1,89 +1,16 @@
 #include "NetService.h"
+#include "NetServiceThread.h"
 #include "Thread.h"
 #include <cassert>
 #include <cmath>
 #include <iostream>
 #include <sys/time.h>
-
 #include "dns_sd.h"
 
 using namespace ZeroConf;
 
 typedef union { unsigned char b[2]; unsigned short NotAnInteger; } Opaque16;
 typedef union { unsigned short NotAnInteger; unsigned char b[2]; } Opaque16b;
-
-namespace ZeroConf {
-class NetServiceThread : public Thread
-{
-public:
-  NetServiceThread(DNSServiceRef dnsServiceRef, double timeOutInSeconds)
-  : mDNSServiceRef(dnsServiceRef)
-  , mTimeOut(timeOutInSeconds)
-  {
-  }
-  
-  ~NetServiceThread()
-  {
-    if(!waitForThreadToExit(100))
-    {
-      stopThread(1);
-    }
-    
-		if(mDNSServiceRef)
-    {
-			DNSServiceRefDeallocate(mDNSServiceRef);
-    }
-  }
-  
-  virtual void run()
-  {
-		int dns_sd_fd = DNSServiceRefSockFD(mDNSServiceRef);
-		int nfds = dns_sd_fd+1;
-		fd_set readfds;
-		struct timeval tv;
-    long seconds = long(floor(mTimeOut));
-    long uSeconds = long(mTimeOut-seconds);
-		
-    while(!threadShouldExit())
-    {
-			FD_ZERO(&readfds);
-      
-      if(mDNSServiceRef) 
-			{
-				FD_SET(dns_sd_fd, &readfds);
-				tv.tv_sec = seconds;
-				tv.tv_usec = uSeconds;
-				int result = select(nfds,&readfds,NULL,NULL,&tv);
-				if(result>0)
-				{
-					DNSServiceErrorType err = kDNSServiceErr_NoError;
-					if(mDNSServiceRef && FD_ISSET(dns_sd_fd, &readfds)) 	
-          {
-            err = DNSServiceProcessResult(mDNSServiceRef);
-          }
-          
-					if (err)
-          {
-            setThreadShouldExit();
-          }
-				}
-				else
-        {
-					setThreadShouldExit();
-        }
-			}
-			else
-      {
-        setThreadShouldExit();
-      }
-    }
-  }
-  
-private:
-  DNSServiceRef mDNSServiceRef;
-  double mTimeOut;
-};
-}
 
 static void register_reply(DNSServiceRef       sdRef, 
                            DNSServiceFlags     flags, 
@@ -186,13 +113,11 @@ NetService::~NetService()
 
 void NetService::setListener(NetServiceListener *pNetServiceListener)
 {
-	//ScopedLock lock(mCriticalSection);
 	mpListener = pNetServiceListener;
 }
 
 NetServiceListener *NetService::getListener() const
 {
-	//ScopedLock lock(mCriticalSection);
 	return mpListener; 
 }
 

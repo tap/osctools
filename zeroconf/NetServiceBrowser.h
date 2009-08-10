@@ -29,13 +29,14 @@
 #define ZeroConf_NetServiceBrowser_H
 
 #include "CriticalSection.h"
-
-namespace std { class string; }
+#include <string>
+#include <vector>
 
 namespace ZeroConf
 {
 	class NetService;
 	class NetServiceBrowser;
+  class NetServiceThread;
 	
 	class NetServiceBrowserListener
 	{
@@ -94,9 +95,14 @@ namespace ZeroConf
 		/** Halts a currently running search or resolution. */
 		void stop();
 		
+    void addService(const char *domain, const char *type, const char *name);
+    void removeService(const char *domain, const char *type, const char *name);
+    
 	private:
 		NetServiceBrowserListener *mpListener;
 		CriticalSection mCriticalSection;
+    NetServiceThread *mpNetServiceThread;
+    std::vector<NetService*> mServices;
 	};
 }
 
