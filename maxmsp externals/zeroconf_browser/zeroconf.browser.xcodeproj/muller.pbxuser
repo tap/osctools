@@ -34,7 +34,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					873,
+					10,
 					20,
 					48,
 					43,
@@ -73,14 +73,14 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 271600007;
-			PBXWorkspaceStateSaveDate = 271600007;
+			PBXPerProjectTemplateStateSaveDate = 271604441;
+			PBXWorkspaceStateSaveDate = 271604441;
 		};
 		perUserProjectItems = {
-			4542E62910304C4200C13320 /* PBXTextBookmark */ = 4542E62910304C4200C13320 /* PBXTextBookmark */;
-			4542E62B10304C4200C13320 /* PBXTextBookmark */ = 4542E62B10304C4200C13320 /* PBXTextBookmark */;
-			4542E6AA103059E000C13320 /* PBXTextBookmark */ = 4542E6AA103059E000C13320 /* PBXTextBookmark */;
-			4542E6D610305EA800C13320 /* PBXTextBookmark */ = 4542E6D610305EA800C13320 /* PBXTextBookmark */;
+			4542E6C510305E2600C13320 /* PBXTextBookmark */ = 4542E6C510305E2600C13320 /* PBXTextBookmark */;
+			4542E6C810305E2600C13320 /* PBXTextBookmark */ = 4542E6C810305E2600C13320 /* PBXTextBookmark */;
+			4542E6CD10305E4C00C13320 /* PBXTextBookmark */ = 4542E6CD10305E4C00C13320 /* PBXTextBookmark */;
+			4542E6D710305EA800C13320 /* PBXTextBookmark */ = 4542E6D710305EA800C13320 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 4542E5F8103049ED00C13320 /* Source Control */;
 		userBuildSettings = {
@@ -88,16 +88,22 @@
 	};
 	22CF10220EE984600054F513 /* maxmspsdk.xcconfig */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {666, 546}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1172, 546}}";
 			sepNavSelRange = "{348, 0}";
-			sepNavVisRange = "{0, 1060}";
+			sepNavVisRange = "{0, 1288}";
 		};
 	};
 	22CF11AD0EE9A8840054F513 /* zeroconf.service.cpp */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = zeroconf.service.cpp;
+		path = "/Users/muller/projects/osctools/maxmsp externals/zeroconf_browser/zeroconf.service.cpp";
+		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1051, 2016}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1051, 2212}}";
 			sepNavSelRange = "{1384, 0}";
-			sepNavVisRange = "{2711, 1447}";
+			sepNavVisRange = "{483, 1375}";
 		};
 	};
 	2FBBEAD608F335360078DB84 /* max-external */ = {
@@ -113,26 +119,6 @@
 	4542E5F9103049ED00C13320 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
-	};
-	4542E62910304C4200C13320 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 22CF10220EE984600054F513 /* maxmspsdk.xcconfig */;
-		name = "maxmspsdk.xcconfig: 9";
-		rLen = 0;
-		rLoc = 348;
-		rType = 0;
-		vrLen = 1288;
-		vrLoc = 0;
-	};
-	4542E62B10304C4200C13320 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 22CF10220EE984600054F513 /* maxmspsdk.xcconfig */;
-		name = "maxmspsdk.xcconfig: 9";
-		rLen = 0;
-		rLoc = 348;
-		rType = 0;
-		vrLen = 1288;
-		vrLoc = 0;
 	};
 	4542E64810304E8400C13320 /* NetService.h */ = {
 		uiCtxt = {
@@ -150,9 +136,9 @@
 	};
 	4542E64D10304E8400C13320 /* NetServiceThread.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {659, 1036}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1051, 1022}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 556}";
+			sepNavVisRange = "{0, 762}";
 		};
 	};
 	4542E64F10304E8400C13320 /* Thread.cpp */ = {
@@ -229,22 +215,63 @@
 		modificationTime = 271602334.88739;
 		state = 1;
 	};
-	4542E6AA103059E000C13320 /* PBXTextBookmark */ = {
+	4542E6B710305AED00C13320 /* NetServiceBrowser.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1051, 1974}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{1449, 1207}";
+		};
+	};
+	4542E6B810305AED00C13320 /* NetServiceBrowser.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1051, 1526}}";
+			sepNavSelRange = "{1603, 730}";
+			sepNavVisRange = "{1513, 2854}";
+		};
+	};
+	4542E6BB10305AFC00C13320 /* zeroconf.browser.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1068, 1890}}";
+			sepNavSelRange = "{3536, 0}";
+			sepNavVisRange = "{3017, 893}";
+		};
+	};
+	4542E6C510305E2600C13320 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		comments = "error: request for member 'c_str' in 'pNetService-> ZeroConf::NetService::getPort()', which is of non-class type 'const int'";
-		fRef = 22CF11AD0EE9A8840054F513 /* zeroconf.service.cpp */;
+		fRef = 4542E6BB10305AFC00C13320 /* zeroconf.browser.cpp */;
+		name = "zeroconf.browser.cpp: 90";
+		rLen = 0;
+		rLoc = 3876;
+		rType = 0;
+		vrLen = 826;
+		vrLoc = 1404;
+	};
+	4542E6C810305E2600C13320 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4542E6BB10305AFC00C13320 /* zeroconf.browser.cpp */;
+		name = "zeroconf.browser.cpp: 30";
+		rLen = 0;
+		rLoc = 1872;
+		rType = 0;
+		vrLen = 1163;
+		vrLoc = 113;
+	};
+	4542E6CD10305E4C00C13320 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: 'atom_geysym' was not declared in this scope";
+		fRef = 4542E6BB10305AFC00C13320 /* zeroconf.browser.cpp */;
 		rLen = 1;
-		rLoc = 50;
+		rLoc = 113;
 		rType = 1;
 	};
-	4542E6D610305EA800C13320 /* PBXTextBookmark */ = {
+	4542E6D710305EA800C13320 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 22CF11AD0EE9A8840054F513 /* zeroconf.service.cpp */;
-		name = "zeroconf.service.cpp: 51";
+		fRef = 4542E6BB10305AFC00C13320 /* zeroconf.browser.cpp */;
+		name = "zeroconf.browser.cpp: 119";
 		rLen = 0;
-		rLoc = 1384;
+		rLoc = 3536;
 		rType = 0;
-		vrLen = 1447;
-		vrLoc = 2711;
+		vrLen = 893;
+		vrLoc = 3017;
 	};
 }

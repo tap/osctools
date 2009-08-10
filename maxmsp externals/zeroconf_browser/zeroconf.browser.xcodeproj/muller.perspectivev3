@@ -298,18 +298,13 @@
 								<string>089C1671FE841209C02AAC07</string>
 								<string>19C28FB4FE9D528D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
-								<string>4542E60410304A7500C13320</string>
-								<string>4542E60510304A7500C13320</string>
-								<string>4542E60610304A7500C13320</string>
-								<string>4542E60710304A7500C13320</string>
-								<string>4542E60810304A7500C13320</string>
-								<string>4542E60910304A7500C13320</string>
 								<string>1C37FAAC04509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>10</integer>
+									<integer>13</integer>
+									<integer>12</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -347,7 +342,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>4542E60A10304A7500C13320</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>zeroconf.service.cpp</string>
+								<string>zeroconf.browser.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -355,19 +350,19 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>4542E60B10304A7500C13320</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>zeroconf.service.cpp</string>
+										<string>zeroconf.browser.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>4542E6D610305EA800C13320</string>
+										<string>4542E6D710305EA800C13320</string>
 										<key>history</key>
 										<array>
-											<string>4542E62910304C4200C13320</string>
-											<string>4542E6AA103059E000C13320</string>
+											<string>4542E6CD10305E4C00C13320</string>
 										</array>
 										<key>prevStack</key>
 										<array>
-											<string>4542E62B10304C4200C13320</string>
+											<string>4542E6C510305E2600C13320</string>
+											<string>4542E6C810305E2600C13320</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -406,7 +401,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1112, 173}}</string>
+										<string>{{10, 27}, {0, -27}}</string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -492,11 +487,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>4542E60E10304A7500C13320</string>
+				<string>4542E6B410305ADF00C13320</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>4542E60F10304A7500C13320</string>
+				<string>4542E6B510305ADF00C13320</string>
 				<string>4542E60A10304A7500C13320</string>
-				<string>4542E61010304A7500C13320</string>
+				<string>4542E6B610305ADF00C13320</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -643,14 +638,14 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>4542E6721030500E00C13320</string>
+				<string>4542E6CF10305E4C00C13320</string>
 				<string>1CCC7628064C1048000F2A68</string>
 				<string>1CCC7629064C1048000F2A68</string>
-				<string>4542E6731030500E00C13320</string>
-				<string>4542E6741030500E00C13320</string>
-				<string>4542E6751030500E00C13320</string>
-				<string>4542E6761030500E00C13320</string>
-				<string>4542E60A10304A7500C13320</string>
+				<string>4542E6D010305E4C00C13320</string>
+				<string>4542E6D110305E4C00C13320</string>
+				<string>4542E6D210305E4C00C13320</string>
+				<string>4542E6D310305E4C00C13320</string>
+				<string>4542E6D410305E4C00C13320</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -665,7 +660,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>271605416.617899</real>
+	<real>271605416.906358</real>
 	<key>ToolbarDisplayMode</key>
 	<integer>1</integer>
 	<key>ToolbarIsVisible</key>
@@ -680,9 +675,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>4542E67D1030507400C13320</string>
-		<string>4542E67E1030507400C13320</string>
-		<string>/Users/muller/projects/osctools/maxmsp externals/zeroconf_service/zeroconf.service.xcodeproj</string>
+		<string>/Users/muller/projects/osctools/maxmsp externals/zeroconf_browser/zeroconf.browser.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 59 1440 819 0 0 1440 878 </string>
