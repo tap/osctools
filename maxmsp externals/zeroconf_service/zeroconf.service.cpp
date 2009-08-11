@@ -8,69 +8,65 @@
 
 using namespace ZeroConf;
 
-class ServiceListener;
+class Service;
 
 struct zeroconf_service 
 {
-	t_object					ob;			// the object itself (must be first)
-  NetService *mpNetService;
-  ServiceListener *mpServiceListener;
+	t_object ob;			// the object itself (must be first)
+  t_symbol *name;
+  t_symbol *type;
+  t_symbol *domain;
+  long port;
+  Service *mpService;
 };
 
-class ServiceListener : public ZeroConf::NetServiceListener
+class Service : public NetService, public NetServiceListener
 {
-  zeroconf_service *mpZeroconf_service;
+  zeroconf_service *mpExternal;
 public:
-  ServiceListener(zeroconf_service *x)
-  : mpZeroconf_service(x)
+  Service(const std::string &domain, 
+          const std::string &type, 
+          const std::string &name, 
+          const int port, 
+          zeroconf_service *x)
+  : NetService(domain, type, name, port)
+  , mpExternal(x)
   {
+    setListener(this);
   }
   
-  virtual void willPublish(NetService *pNetService)
-  {
-  }
-  virtual void didNotPublish(NetService *pNetService)
-  {
-    object_post((t_object *)mpZeroconf_service, "didNotPublish" );
-  }
+private:
+  virtual void willPublish(NetService *pNetService) {}
+  virtual void didNotPublish(NetService *pNetService) { object_post((t_object *)mpExternal, "didNotPublish" ); }
   virtual void didPublish(NetService *pNetService)
   {
-    object_post((t_object *)mpZeroconf_service, "Service published: %s %d", pNetService->getName().c_str(), pNetService->getPort());
+    object_post((t_object *)mpExternal, "Service published: %s %d", pNetService->getName().c_str(), pNetService->getPort());
   }
-  virtual void willResolve(NetService *pNetService)
-  {
-  }
-  virtual void didNotResolve(NetService *NetService)
-  {
-  }
-  virtual void didResolveAddress(NetService *pNetService)
-  {
-  }
-  virtual void didUpdateTXTRecordData(NetService *pNetService)
-  {
-  }   
-  virtual void didStop(NetService *pNetService)
-  {
-  }
+  
+  virtual void willResolve(NetService *pNetService) {}
+  virtual void didNotResolve(NetService *NetService) {}
+  virtual void didResolveAddress(NetService *pNetService) {}
+  virtual void didUpdateTXTRecordData(NetService *pNetService) {}   
+  virtual void didStop(NetService *pNetService) {}
 };
 
 //------------------------------------------------------------------------------
-void *zeroconf_service_new(t_symbol *s, long argc, t_atom *argv);
-void zeroconf_service_free(zeroconf_service *x);
-void zeroconf_service_assist(zeroconf_service *x, void *b, long m, long a, char *s);
-
 t_class *zeroconf_service_class;
 
-int main(void)
-{		
-	t_class *c = class_new("zeroconf.service", (method)zeroconf_service_new, (method)zeroconf_service_free, (long)sizeof(zeroconf_service), 0L, A_GIMME, 0);
-	
-  class_addmethod(c, (method)zeroconf_service_assist,			"assist",		A_CANT, 0);  
-	
-	class_register(CLASS_BOX, c); /* CLASS_NOBOX */
-	zeroconf_service_class = c;
-  
-	return 0;
+void zeroconf_service_bang(zeroconf_service *x)
+{
+  if(x->mpService)
+  {
+    delete x->mpService;
+    x->mpService = NULL;
+  }
+
+  x->mpService = new Service(x->domain->s_name,
+                             x->type->s_name,
+                             x->name->s_name,
+                             x->port, 
+                             x);
+  x->mpService->publish();
 }
 
 void zeroconf_service_assist(zeroconf_service *x, void *b, long m, long a, char *s)
@@ -87,15 +83,9 @@ void zeroconf_service_assist(zeroconf_service *x, void *b, long m, long a, char 
 
 void zeroconf_service_free(zeroconf_service *x)
 {
-  if(x->mpNetService)
+  if(x->mpService)
   {
-    delete x->mpNetService;
-    x->mpNetService = NULL;
-  }
-  if(x->mpServiceListener)
-  {
-    delete x->mpServiceListener;
-    x->mpServiceListener = NULL;
+    delete x->mpService;
   }
 }
 
@@ -105,23 +95,31 @@ void *zeroconf_service_new(t_symbol *s, long argc, t_atom *argv)
   
 	if (x = (zeroconf_service *)object_alloc(zeroconf_service_class)) 
 	{
-    x->mpNetService = NULL;
-    x->mpServiceListener = NULL;
-    if(argc >= 3 && argv[0].a_type == A_SYM && argv[1].a_type == A_LONG && argv[2].a_type == A_SYM)
-    {
-		const char *name = atom_getsym(argv+0)->s_name;
-		const long port = atom_getlong(argv+1);
-		const char *type = atom_getsym(argv+2)->s_name;
-		const char *domain = "local."; //atom_getsym(argv+0)->s_name;
-      x->mpNetService = new NetService(domain, type, name, port);
-      x->mpServiceListener = new ServiceListener(x);
-      x->mpNetService->setListener(x->mpServiceListener);
-      x->mpNetService->publish();        
-    }
-    else
-    {
-      object_post((t_object *)x, "error");
-    }
-	}
+    x->mpService = NULL;
+    x->name = gensym("");
+    x->type = gensym("");
+    x->domain = gensym("");
+    x->port = 0;
+    attr_args_process(x, argc, argv);
+  }
 	return (x);
+}
+
+int main(void)
+{		
+	t_class *c = class_new("zeroconf.service", (method)zeroconf_service_new, (method)zeroconf_service_free, (long)sizeof(zeroconf_service), 0L, A_GIMME, 0);
+	
+  class_addmethod(c, (method)zeroconf_service_bang,			"bang",	0);  
+  class_addmethod(c, (method)zeroconf_service_bang,			"loadbang", 0);  
+  class_addmethod(c, (method)zeroconf_service_assist,			"assist",	A_CANT, 0);  
+  
+  CLASS_ATTR_SYM(c, "name", 0, zeroconf_service, name);
+  CLASS_ATTR_SYM(c, "type", 0, zeroconf_service, type);
+  CLASS_ATTR_SYM(c, "domain", 0, zeroconf_service, domain);
+  CLASS_ATTR_LONG(c, "port", 0, zeroconf_service, port);
+	
+	class_register(CLASS_BOX, c); /* CLASS_NOBOX */
+	zeroconf_service_class = c;
+  
+	return 0;
 }

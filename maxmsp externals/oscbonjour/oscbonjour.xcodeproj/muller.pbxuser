@@ -69,12 +69,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 271629791;
-			PBXWorkspaceStateSaveDate = 271629791;
-		};
-		perUserProjectItems = {
-			45CC344C1030D62F0057043E /* PBXTextBookmark */ = 45CC344C1030D62F0057043E /* PBXTextBookmark */;
-			45CC344D1030D62F0057043E /* PBXTextBookmark */ = 45CC344D1030D62F0057043E /* PBXTextBookmark */;
+			PBXPerProjectTemplateStateSaveDate = 271669412;
+			PBXWorkspaceStateSaveDate = 271669412;
 		};
 		sourceControlManager = 45A57D6A0B04F81200FF8034 /* Source Control */;
 		userBuildSettings = {
@@ -116,26 +112,6 @@
 		modificationTime = 271635871.695774;
 		state = 1;
 	};
-	45CC344C1030D62F0057043E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 56F0EDEB0B04DDAD00FAAA58 /* oscbonjour.cpp */;
-		name = "oscbonjour.cpp: 269";
-		rLen = 7;
-		rLoc = 9314;
-		rType = 0;
-		vrLen = 1406;
-		vrLoc = 6164;
-	};
-	45CC344D1030D62F0057043E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 56F0EDEB0B04DDAD00FAAA58 /* oscbonjour.cpp */;
-		name = "oscbonjour.cpp: 102";
-		rLen = 0;
-		rLoc = 3219;
-		rType = 0;
-		vrLen = 1296;
-		vrLoc = 8260;
-	};
 	45EB42961030808500AB8A5C /* Thread.cpp */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1084, 2842}}";
@@ -145,7 +121,7 @@
 	};
 	45EB42A3103080A600AB8A5C /* maxmspsdk.xcconfig */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1090, 546}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1084, 546}}";
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 1280}";
 		};

@@ -134,9 +134,9 @@
 	};
 	4542E4AF10302D6D00C13320 /* NetServiceThread.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1122, 1022}}";
-			sepNavSelRange = "{136, 16}";
-			sepNavVisRange = "{0, 797}";
+			sepNavIntBoundsRect = "{{0, 0}, {1122, 994}}";
+			sepNavSelRange = "{136, 1239}";
+			sepNavVisRange = "{501, 876}";
 		};
 	};
 	4542E4B010302D6D00C13320 /* NetServiceThread.h */ = {

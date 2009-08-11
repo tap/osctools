@@ -30,6 +30,8 @@
 #include "zeroconf/NetServiceBrowser.h"
 #include "zeroconf/NetService.h"
 #include <iostream>
+#include <string>
+#include <set>
 
 using namespace ZeroConf;
 
@@ -38,6 +40,8 @@ class Browser;
 struct zeroconf_browser 
 {
 	t_object ob;			// the object itself (must be first)
+  t_symbol *type;
+  t_symbol *domain;
 	void *out;
 	Browser *mpBrowser;
 };
@@ -45,30 +49,67 @@ struct zeroconf_browser
 class Browser : public NetServiceBrowser, public NetServiceBrowserListener
 {
   zeroconf_browser *mpExternal;
-	
+  std::set<std::string> mServices;
+  CriticalSection mCriticalSection; // CriticalSection for shared access to mServices
+  
 public:
   Browser(zeroconf_browser *x)
-  : mpExternal(x)
+  : NetServiceBrowser()
+  , mpExternal(x)
   {
 	  setListener(this);
   }
-
+    
+  void search(const std::string &type, const std::string &domain)
+  {
+    if(!type.empty())
+    {
+      stop();
+      {
+        ScopedLock lock(mCriticalSection);
+        mServices.clear();
+      }
+      searchForServicesOfType(type, domain);
+    }
+  }
+  
 private:
   virtual void didFindDomain(NetServiceBrowser *pNetServiceBrowser, const std::string &domainName, bool moreDomainsComing) { }
   virtual void didRemoveDomain(NetServiceBrowser *pNetServiceBrowser, const std::string &domainName, bool moreDomainsComing) { }
+
+  void outputListOfServices()
+  {
+    t_atom at[1];
+    outlet_anything(mpExternal->out, gensym("clear"), 0, NULL);
+    
+    ScopedLock lock(mCriticalSection);
+    for(std::set<std::string>::iterator it=mServices.begin(); it != mServices.end(); ++it)
+    {
+      atom_setsym(at, gensym(const_cast<char*>(it->c_str())));	  
+      outlet_anything(mpExternal->out, gensym("append"), 1, at);
+    }
+  }
   
   virtual void didFindService(NetServiceBrowser* pNetServiceBrowser, NetService *pNetService, bool moreServicesComing) 
   { 
-	  t_atom at[1];
-	  atom_setsym(at, gensym(const_cast<char*>(pNetService->getName().c_str())));	  
-	  outlet_anything(mpExternal->out, gensym("append"), 1, at);
+    {
+      ScopedLock lock(mCriticalSection);
+      mServices.insert(pNetService->getName());
+    }
+    
+    if(!moreServicesComing)
+      outputListOfServices();
   }
 	
   virtual void didRemoveService(NetServiceBrowser *pNetServiceBrowser, NetService *pNetService, bool moreServicesComing) 
   { 
-	  t_atom at[1];
-	  atom_setsym(at, gensym(const_cast<char*>(pNetService->getName().c_str())));	  
-	  outlet_anything(mpExternal->out, gensym("delete"), 1, at);
+    {
+      ScopedLock lock(mCriticalSection);
+      mServices.erase(pNetService->getName());
+    }
+    
+    if(!moreServicesComing)
+      outputListOfServices();
   }
   
   virtual void willSearch(NetServiceBrowser *pNetServiceBrowser) { }
@@ -79,36 +120,33 @@ private:
 //------------------------------------------------------------------------------
 t_class *zeroconf_browser_class;
 
-void zeroconf_browser_browse(zeroconf_browser *x, t_symbol *s, long argc, t_atom *argv)
+void zeroconf_browser_bang(zeroconf_browser *x)
 {
-	char *type = NULL;
-	char *domain = "local.";
-	
-    switch(argc)
-    {
-		case 2:
-			if(argv[1].a_type == A_SYM)
-			{
-				domain = atom_getsym(argv+1)->s_name;
-			}
-		case 1:
-			if(argv[0].a_type == A_SYM)
-			{
-				type = atom_getsym(argv+0)->s_name;
-			}
-		default:
-			break;
-    }
-    
-    if(type != NULL)
-    {
-		if(x->mpBrowser)
-			delete x->mpBrowser;
-		x->mpBrowser = NULL;
-		
-		x->mpBrowser = new Browser(x);
-		x->mpBrowser->searchForServicesOfType(type, domain);
-	}
+  x->mpBrowser->search(x->type->s_name, x->domain->s_name);
+}
+
+void zeroconf_browser_browse(zeroconf_browser *x, t_symbol *s, long argc, t_atom *argv)
+{	
+  bool valid = false;
+  switch(argc)
+  {
+    case 2:
+      if(argv[1].a_type == A_SYM)
+      {
+        x->domain = atom_getsym(argv+1);
+      }
+    case 1:
+      if(argv[0].a_type == A_SYM)
+      {
+        valid = true;
+        x->type = atom_getsym(argv+0);
+      }
+    default:
+      break;
+  }
+  
+  if(valid)
+    zeroconf_browser_bang(x);
 }
 
 void zeroconf_browser_assist(zeroconf_browser *x, void *b, long m, long a, char *s)
@@ -138,31 +176,10 @@ void *zeroconf_browser_new(t_symbol *s, long argc, t_atom *argv)
 	if (x = (zeroconf_browser *)object_alloc(zeroconf_browser_class)) 
 	{
 		x->out = outlet_new(x, NULL);
-        x->mpBrowser = NULL;
-        char *type = NULL;
-        char *domain = "local";
-
-    switch(argc)
-    {
-      case 2:
-        if(argv[1].a_type == A_SYM)
-        {
-          domain = atom_getsym(argv+1)->s_name;
-        }
-      case 1:
-        if(argv[0].a_type == A_SYM)
-        {
-          type = atom_getsym(argv+1)->s_name;
-        }
-      default:
-        break;
-    }
-    
-    if(type != NULL)
-    {
-      x->mpBrowser = new Browser(x);
-      x->mpBrowser->searchForServicesOfType(type, domain);        
-    }
+    x->type = gensym("");
+    x->domain = gensym("local.");
+    x->mpBrowser = new Browser(x);        
+    attr_args_process(x, argc, argv);
 	}
 	return (x);
 }
@@ -171,8 +188,13 @@ int main(void)
 {		
 	t_class *c = class_new("zeroconf.browser", (method)zeroconf_browser_new, (method)zeroconf_browser_free, (long)sizeof(zeroconf_browser), 0L, A_GIMME, 0);
 	
-	class_addmethod(c, (method)zeroconf_browser_browse,			"browse",		A_GIMME, 0);  
-	class_addmethod(c, (method)zeroconf_browser_assist,			"assist",		A_CANT, 0);  
+	class_addmethod(c, (method)zeroconf_browser_bang,       "bang",		0);  
+	class_addmethod(c, (method)zeroconf_browser_bang,       "loadbang",		0);  
+	class_addmethod(c, (method)zeroconf_browser_browse,			"browse",	A_GIMME, 0);  
+	class_addmethod(c, (method)zeroconf_browser_assist,			"assist",	A_CANT, 0);  
+
+  CLASS_ATTR_SYM(c, "type", 0, zeroconf_browser, type);
+  CLASS_ATTR_SYM(c, "domain", 0, zeroconf_browser, domain);
 	
 	class_register(CLASS_BOX, c); /* CLASS_NOBOX */
 	zeroconf_browser_class = c;

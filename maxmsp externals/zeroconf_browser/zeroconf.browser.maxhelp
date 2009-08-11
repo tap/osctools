@@ -48,7 +48,7 @@
 , 			{
 				"box" : 				{
 					"maxclass" : "newobj",
-					"text" : "zeroconf.service \"Open Sound Control UDP Service\" 4321 _osc._udp",
+					"text" : "zeroconf.service @name \"Open Sound Control UDP Service\" @port 4321 @type _osc._udp",
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"id" : "obj-5",
@@ -61,7 +61,7 @@
 , 			{
 				"box" : 				{
 					"maxclass" : "newobj",
-					"text" : "zeroconf.service \"Un autre service\" 6666 _osc._udp",
+					"text" : "zeroconf.service @name \"Un autre service\" @port 6666 @type _osc._udp",
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"id" : "obj-6",
@@ -74,7 +74,7 @@
 , 			{
 				"box" : 				{
 					"maxclass" : "newobj",
-					"text" : "zeroconf.service \"Open Sound Control UDP Service\" 12345 _osc._udp",
+					"text" : "zeroconf.service @name \"Open Sound Control UDP Service\" @port 12345 @type _osc._udp",
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"id" : "obj-4",
@@ -114,7 +114,7 @@
 , 			{
 				"box" : 				{
 					"maxclass" : "newobj",
-					"text" : "zeroconf.browser _smb._tcp",
+					"text" : "zeroconf.browser @type _smb._tcp @domain local.",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"id" : "obj-1",

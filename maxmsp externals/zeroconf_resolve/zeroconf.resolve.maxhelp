@@ -31,7 +31,7 @@
 , 			{
 				"box" : 				{
 					"maxclass" : "newobj",
-					"text" : "zeroconf.resolve AnotherOne _osc._udp local.",
+					"text" : "zeroconf.resolve @name \"Un autre service\" @type _osc._udp @domain local.",
 					"fontname" : "Verdana",
 					"id" : "obj-1",
 					"numinlets" : 1,

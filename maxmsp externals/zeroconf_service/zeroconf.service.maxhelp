@@ -18,7 +18,7 @@
 		"boxes" : [ 			{
 				"box" : 				{
 					"maxclass" : "newobj",
-					"text" : "zeroconf.service \"Un autre service\" 6666 _osc._udp",
+					"text" : "zeroconf.service @name \"Un autre service\" @port 6666 @type _osc._udp",
 					"id" : "obj-6",
 					"fontname" : "Verdana",
 					"numinlets" : 1,
@@ -44,7 +44,7 @@
 , 			{
 				"box" : 				{
 					"maxclass" : "newobj",
-					"text" : "zeroconf.service \"Open Sound Control UDP Service\" 12345 _osc._udp",
+					"text" : "zeroconf.service @name \"Open Sound Control UDP Service\" @port 12345 @type _osc._udp",
 					"id" : "obj-1",
 					"fontname" : "Verdana",
 					"numinlets" : 1,
