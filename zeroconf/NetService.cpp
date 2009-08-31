@@ -223,7 +223,7 @@ void NetService::publishWithOptions(Options options)
     {
       mpListener->willPublish(this);
     }
-    mpNetServiceThread = new NetServiceThread(dnsServiceRef, 0.1);
+    mpNetServiceThread = new NetServiceThread(dnsServiceRef, 1.0);
     mpNetServiceThread->startThread();
   }  
 }
@@ -258,7 +258,7 @@ void NetService::resolveWithTimeout(double timeOutInSeconds)
     {
       mpListener->willResolve(this);
     }
-    mpNetServiceThread = new NetServiceThread(dnsServiceRef, 0.1);
+    mpNetServiceThread = new NetServiceThread(dnsServiceRef, 1.0);
     mpNetServiceThread->startThread();
   }
 }

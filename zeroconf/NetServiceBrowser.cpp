@@ -117,7 +117,7 @@ void NetServiceBrowser::searchForServicesOfType(const std::string &serviceType, 
     if(mpListener)
        mpListener->willSearch(this);
        
-    mpNetServiceThread = new NetServiceThread(dnsServiceRef, 0.1);
+    mpNetServiceThread = new NetServiceThread(dnsServiceRef, 1.0);
     mpNetServiceThread->startThread();
   }
 }

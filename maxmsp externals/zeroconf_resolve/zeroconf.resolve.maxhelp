@@ -18,13 +18,37 @@
 		"boxes" : [ 			{
 				"box" : 				{
 					"maxclass" : "newobj",
-					"text" : "print",
+					"text" : "zeroconf.service @name \"Un autre service\" @port 6666 @type _osc._udp",
+					"fontsize" : 10.0,
+					"patching_rect" : [ 103.0, 262.0, 380.0, 19.0 ],
+					"id" : "obj-6",
+					"numinlets" : 1,
 					"fontname" : "Verdana",
+					"numoutlets" : 0
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"maxclass" : "button",
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 103.0, 64.0, 20.0, 20.0 ],
+					"id" : "obj-4",
+					"numinlets" : 1,
+					"numoutlets" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"maxclass" : "newobj",
+					"text" : "print",
+					"fontsize" : 10.0,
+					"patching_rect" : [ 103.0, 170.0, 34.0, 19.0 ],
 					"id" : "obj-2",
 					"numinlets" : 1,
-					"numoutlets" : 0,
-					"fontsize" : 10.0,
-					"patching_rect" : [ 115.0, 170.0, 34.0, 19.0 ]
+					"fontname" : "Verdana",
+					"numoutlets" : 0
 				}
 
 			}
@@ -32,13 +56,13 @@
 				"box" : 				{
 					"maxclass" : "newobj",
 					"text" : "zeroconf.resolve @name \"Un autre service\" @type _osc._udp @domain local.",
-					"fontname" : "Verdana",
+					"outlettype" : [ "" ],
+					"fontsize" : 10.0,
+					"patching_rect" : [ 103.0, 128.0, 399.0, 19.0 ],
 					"id" : "obj-1",
 					"numinlets" : 1,
-					"numoutlets" : 1,
-					"fontsize" : 10.0,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 115.0, 128.0, 241.0, 19.0 ]
+					"fontname" : "Verdana",
+					"numoutlets" : 1
 				}
 
 			}
@@ -47,6 +71,15 @@
 				"patchline" : 				{
 					"source" : [ "obj-1", 0 ],
 					"destination" : [ "obj-2", 0 ],
+					"hidden" : 0,
+					"midpoints" : [  ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"source" : [ "obj-4", 0 ],
+					"destination" : [ "obj-1", 0 ],
 					"hidden" : 0,
 					"midpoints" : [  ]
 				}

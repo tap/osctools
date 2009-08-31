@@ -32,6 +32,7 @@ public:
   : NetService(domain, type, name)
   , mpExternal(x)
   {
+		setListener(this); 
   }
   
   virtual void willPublish(NetService *pNetService) {}
@@ -63,6 +64,7 @@ void zeroconf_resolve_bang(zeroconf_resolve *x)
 {
   if(x->mpService)
     delete x->mpService;
+	x->mpService = NULL;
   
   x->mpService = new Service(x->domain->s_name,
                              x->type->s_name,
