@@ -60,13 +60,13 @@ static void browse_reply(DNSServiceRef client,
 NetServiceBrowser::NetServiceBrowser()
 : mpListener(NULL)
 , mpNetServiceThread(NULL)
+, mDNSServiceRef(NULL)
 {
 }
 
 NetServiceBrowser::~NetServiceBrowser()
 {
-  if(mpNetServiceThread)
-    stop();
+	stop();
 }
 
 void NetServiceBrowser::setListener(NetServiceBrowserListener *pNetServiceBrowserListener)
@@ -89,15 +89,13 @@ void NetServiceBrowser::searchForRegistrationDomains()
 	assert(0);
 }
 
-void NetServiceBrowser::searchForServicesOfType(const std::string &serviceType, const std::string &domainName)
+void NetServiceBrowser::searchForServicesOfType(const std::string &serviceType, const std::string &domainName, bool launchThread)
 {
-  if(mpNetServiceThread)
-    stop();
-  
+	stop();
+	  
   DNSServiceFlags flags	= 0;		// default renaming behaviour 
   uint32_t interfaceIndex = kDNSServiceInterfaceIndexAny;		// all interfaces 
-  DNSServiceRef dnsServiceRef;
-  DNSServiceErrorType err = DNSServiceBrowse(&dnsServiceRef, 
+  DNSServiceErrorType err = DNSServiceBrowse(&mDNSServiceRef, 
                                              flags, 
                                              interfaceIndex, 
                                              serviceType.c_str(), 
@@ -105,20 +103,26 @@ void NetServiceBrowser::searchForServicesOfType(const std::string &serviceType, 
                                              (DNSServiceBrowseReply)&browse_reply, 
                                              this);
   
-  if (!dnsServiceRef || err != kDNSServiceErr_NoError) 
+  if (!mDNSServiceRef || err != kDNSServiceErr_NoError) 
   { 
     if(mpListener)
     {
       mpListener->didNotSearch(this);
     }
+		if(mDNSServiceRef)
+			DNSServiceRefDeallocate(mDNSServiceRef);
+		mDNSServiceRef = NULL;
   }
   else
   {
     if(mpListener)
        mpListener->willSearch(this);
-       
-    mpNetServiceThread = new NetServiceThread(dnsServiceRef, 1.0);
-    mpNetServiceThread->startThread();
+
+		if(launchThread)
+		{
+			mpNetServiceThread = new NetServiceThread(mDNSServiceRef, 1.0);
+			mpNetServiceThread->startThread();
+		}
   }
 }
 
@@ -131,6 +135,10 @@ void NetServiceBrowser::stop()
     delete mpNetServiceThread;
     mpNetServiceThread = NULL;
   }
+	
+	if(mDNSServiceRef)
+		DNSServiceRefDeallocate(mDNSServiceRef);
+	mDNSServiceRef = NULL;
 }
 
 void NetServiceBrowser::addService(const char *domain, const char *type, const char *name, bool moreComing)

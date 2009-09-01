@@ -112,7 +112,8 @@ static void DNSSD_API resolve_reply(DNSServiceRef client,
 
 //------------------------------------------------------------------------------
 NetService::NetService(const std::string &domain, const std::string &type, const std::string &name, const int port)
-: mDomain(domain)
+: mDNSServiceRef(NULL)
+, mDomain(domain)
 , mType(type)
 , mName(name)
 , mPort(port)
@@ -122,7 +123,8 @@ NetService::NetService(const std::string &domain, const std::string &type, const
 }
 
 NetService::NetService(const std::string &domain, const std::string &type, const std::string &name)
-: mDomain(domain)
+: mDNSServiceRef(NULL)
+, mDomain(domain)
 , mType(type)
 , mName(name)
 , mPort(-1)
@@ -133,11 +135,8 @@ NetService::NetService(const std::string &domain, const std::string &type, const
 
 NetService::~NetService()
 {
-  if(mpNetServiceThread)
-  {
-    stop();
-  }
-}
+	stop();
+	}
 
 void NetService::setListener(NetServiceListener *pNetServiceListener)
 {
@@ -164,18 +163,15 @@ void NetService::setHostName(const std::string &name)
   mHostName = name;
 }
 
-void NetService::publish()
+void NetService::publish(bool launchThread)
 {
-  publishWithOptions(Options(0));
+  publishWithOptions(Options(0), launchThread);
 }
 
-void NetService::publishWithOptions(Options options)
+void NetService::publishWithOptions(Options options, bool launchThread)
 {
-  if(mpNetServiceThread)
-  {
-    stop();
-  }
-  
+	stop();
+	  
   if(mPort<0)
   {
     if(mpListener)
@@ -197,8 +193,7 @@ void NetService::publishWithOptions(Options options)
   const void *txtRecord	= "";		                        /* may be NULL */
   DNSServiceRegisterReply callBack = (DNSServiceRegisterReply)&register_reply;	/* may be NULL */
   void *context			= this;		                        /* may be NULL */
-  DNSServiceRef dnsServiceRef = NULL;
-  DNSServiceErrorType result = DNSServiceRegister(&dnsServiceRef, 
+  DNSServiceErrorType result = DNSServiceRegister(&mDNSServiceRef, 
                                                   flags, 
                                                   interfaceIndex, 
                                                   name, 
@@ -216,6 +211,9 @@ void NetService::publishWithOptions(Options options)
     {
       mpListener->didNotPublish(this);
     }
+		if(mDNSServiceRef)
+			DNSServiceRefDeallocate(mDNSServiceRef);
+		mDNSServiceRef = NULL;			
   }
   else
   {
@@ -223,20 +221,21 @@ void NetService::publishWithOptions(Options options)
     {
       mpListener->willPublish(this);
     }
-    mpNetServiceThread = new NetServiceThread(dnsServiceRef, 1.0);
-    mpNetServiceThread->startThread();
+		if(launchThread)
+		{
+			mpNetServiceThread = new NetServiceThread(mDNSServiceRef, 1.0);
+			mpNetServiceThread->startThread();
+		}
   }  
 }
 
-void NetService::resolveWithTimeout(double timeOutInSeconds)
+void NetService::resolveWithTimeout(double timeOutInSeconds, bool launchThread)
 {
-  if(mpNetServiceThread)
-    stop();
-
+	stop();
+	
   DNSServiceFlags flags	= 0;
   uint32_t interfaceIndex = kDNSServiceInterfaceIndexAny;		// all interfaces 
-  DNSServiceRef dnsServiceRef;
-  DNSServiceErrorType err = DNSServiceResolve(&dnsServiceRef,
+  DNSServiceErrorType err = DNSServiceResolve(&mDNSServiceRef,
                                               flags,
                                               interfaceIndex,
                                               mName.c_str(),
@@ -245,12 +244,15 @@ void NetService::resolveWithTimeout(double timeOutInSeconds)
                                               (DNSServiceResolveReply)&resolve_reply,
                                               this);
   
-  if (!dnsServiceRef || err != kDNSServiceErr_NoError) 
+  if (!mDNSServiceRef || err != kDNSServiceErr_NoError) 
   { 
     if(mpListener)
     {
       mpListener->didNotResolve(this);
     }
+		if(mDNSServiceRef)
+			DNSServiceRefDeallocate(mDNSServiceRef);
+		mDNSServiceRef = NULL;			
   }
   else
   {
@@ -258,8 +260,11 @@ void NetService::resolveWithTimeout(double timeOutInSeconds)
     {
       mpListener->willResolve(this);
     }
-    mpNetServiceThread = new NetServiceThread(dnsServiceRef, 1.0);
-    mpNetServiceThread->startThread();
+		if(launchThread)
+		{
+			mpNetServiceThread = new NetServiceThread(mDNSServiceRef, 1.0);
+			mpNetServiceThread->startThread();
+		}
   }
 }
 
@@ -272,6 +277,12 @@ void NetService::stop()
     delete mpNetServiceThread;
     mpNetServiceThread = NULL;
   }
+	
+	if(mDNSServiceRef)
+	{
+		DNSServiceRefDeallocate(mDNSServiceRef);
+		mDNSServiceRef = NULL;
+	}	
 }
 
 void NetService::startMonitoring()

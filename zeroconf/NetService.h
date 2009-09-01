@@ -30,6 +30,7 @@
 
 #include <string>
 #include "zeroconf/CriticalSection.h"
+#include "dns_sd.h"
 
 namespace ZeroConf 
 {
@@ -111,10 +112,10 @@ namespace ZeroConf
 		void setListener(NetServiceListener *pNetServiceListener);
 		NetServiceListener *getListener() const;
 		
-		void publish();
-		void publishWithOptions(Options options);
+		void publish(bool launchThread);
+		void publishWithOptions(Options options, bool launchThread=true);
 		
-		void resolveWithTimeout(double timeOutInSeconds);
+		void resolveWithTimeout(double timeOutInSeconds, bool launchThread = true);
 
 		/** Halts a currently running attempt to publish or resolve a service. 
 		 
@@ -138,7 +139,10 @@ namespace ZeroConf
     void setHostName(const std::string &name);
 		const std::string& getHostName() const { return mHostName; }
 
+		DNSServiceRef getDNSServiceRef() { return mDNSServiceRef; }
+		
 	private:
+		DNSServiceRef mDNSServiceRef;
 		std::string mDomain;
 		std::string mType;
 		std::string mName;

@@ -4,6 +4,7 @@
 #include "ext.h"				
 #include "ext_obex.h"						
 #include "zeroconf/NetService.h"
+#include "zeroconf/NetServiceThread.h"
 #include <iostream>
 
 using namespace ZeroConf;
@@ -60,6 +61,26 @@ public:
 //------------------------------------------------------------------------------
 t_class *zeroconf_resolve_class;
 
+void zeroconf_resolve_poll(zeroconf_resolve *x, t_symbol *sym, short argc, t_atom *arv)
+{	
+	// poll for results
+	if(x->mpService && x->mpService->getDNSServiceRef())
+	{
+		DNSServiceErrorType err = kDNSServiceErr_NoError;
+		if(NetServiceThread::poll(x->mpService->getDNSServiceRef(), 0.001, err))
+		{
+			if(err > 0)
+				object_post((t_object*)x, "error %d", err);
+			x->mpService->stop();
+		}
+	}
+	
+	if(x->mpService && x->mpService->getDNSServiceRef()) // we check again, because it might have change in reaction to a callback
+	{
+		schedule_defer(x, (method)zeroconf_resolve_poll, 1000, NULL, 0, NULL); // reschedule in 1 sec
+	}
+}
+
 void zeroconf_resolve_bang(zeroconf_resolve *x)
 {
   if(x->mpService)
@@ -70,7 +91,9 @@ void zeroconf_resolve_bang(zeroconf_resolve *x)
                              x->type->s_name,
                              x->name->s_name,
                              x);
-  x->mpService->resolveWithTimeout(10.0);
+  x->mpService->resolveWithTimeout(10.0, false);
+	
+	schedule_defer(x, (method)zeroconf_resolve_poll, 1000, NULL, 0, NULL); // reschedule in 1 sec
 }
 
 void zeroconf_resolve_assist(zeroconf_resolve *x, void *b, long m, long a, char *s)
@@ -105,6 +128,8 @@ void *zeroconf_resolve_new(t_symbol *s, long argc, t_atom *argv)
     x->domain = gensym("local.");
 	 	x->out = outlet_new(x, NULL);
     attr_args_process(x, argc, argv);	
+		
+		zeroconf_resolve_bang(x);
 	}
 	return (x);
 }
@@ -114,7 +139,6 @@ int main(void)
 	t_class *c = class_new("zeroconf.resolve", (method)zeroconf_resolve_new, (method)zeroconf_resolve_free, (long)sizeof(zeroconf_resolve), 0L, A_GIMME, 0);
 	
   class_addmethod(c, (method)zeroconf_resolve_bang,			"bang",     0);  
-  class_addmethod(c, (method)zeroconf_resolve_bang,			"loadbang",	0);  
   class_addmethod(c, (method)zeroconf_resolve_assist,		"assist",   A_CANT, 0);  
 
   CLASS_ATTR_SYM(c, "name", 0, zeroconf_resolve, name);

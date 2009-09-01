@@ -41,6 +41,8 @@ namespace ZeroConf
       ~NetServiceThread();
       
       virtual void run();
+		
+		static bool poll(DNSServiceRef dnsServiceRef, double timeOutInSeconds, DNSServiceErrorType &err);
       
     private:
       DNSServiceRef mDNSServiceRef;

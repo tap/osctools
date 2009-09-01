@@ -31,6 +31,7 @@
 #include "zeroconf/CriticalSection.h"
 #include <string>
 #include <vector>
+#include "dns_sd.h"
 
 namespace ZeroConf
 {
@@ -90,7 +91,7 @@ namespace ZeroConf
 		void searchForBrowsableDomains();
 		void searchForRegistrationDomains();
 		
-		void searchForServicesOfType(const std::string &serviceType, const std::string &domainName);
+		void searchForServicesOfType(const std::string &serviceType, const std::string &domainName, bool launchThread=true);
 		
 		/** Halts a currently running search or resolution. */
 		void stop();
@@ -98,7 +99,10 @@ namespace ZeroConf
     void addService(const char *domain, const char *type, const char *name, bool moreComing);
     void removeService(const char *domain, const char *type, const char *name, bool moreComming);
     
+		DNSServiceRef getDNSServiceRef() { return mDNSServiceRef; }
+		
 	private:
+		DNSServiceRef mDNSServiceRef;
 		NetServiceBrowserListener *mpListener;
 		CriticalSection mCriticalSection;
     NetServiceThread *mpNetServiceThread;
